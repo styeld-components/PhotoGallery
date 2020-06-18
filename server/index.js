@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 app.use(express.static('./client/dist'))
 
 app.get('/api/:roomId/photogallery', (req, res) => {
+  console.log('index touched')
   Controllers.getPhotos(req, res);
 });
 

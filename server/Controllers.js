@@ -1,6 +1,7 @@
 const Models = require('./Models.js');
 
 function getPhotos(req, res) {
+  console.log('reached controller')
   const roomId = req.params.roomId;
   Models.getPhotos(roomId, (err, data) => {
     if(err) {
@@ -10,3 +11,5 @@ function getPhotos(req, res) {
     }
   })
 }
+
+module.exports = { getPhotos };
