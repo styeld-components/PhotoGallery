@@ -9,12 +9,34 @@ class GalleryMain extends React.Component {
 
   render() {
     return (
-      <div className="gallery-container">
-        <div className="image">
-          <img src={this.props.photo.imageUrl} />
+      <div>
+        <div className="gallery-container">
+          <div className="image">
+            <img src={this.props.photos.room_photos[0].imageUrl} />
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div className="image">
+            <img src={this.props.photos.room_photos[1].imageUrl} />
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div className="image">
+            <img src={this.props.photos.room_photos[2].imageUrl} />
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div className="image">
+            <img src={this.props.photos.room_photos[3].imageUrl} />
+          </div>
+        </div>
+        <div className="gallery-container">
+          <div className="image">
+            <img src={this.props.photos.room_photos[4].imageUrl} />
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
