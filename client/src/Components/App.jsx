@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable no-else-return */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
@@ -41,7 +44,6 @@ class App extends React.Component {
   renderView() {
     const { view } = this.state;
 
-    //get only six photos
     const mainPhoto = [];
     const list = this.state.photos;
     if (list.length !== 0) {
@@ -51,11 +53,12 @@ class App extends React.Component {
       if (view === 'main') {
         return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} />;
       } else if (view === 'showAll') {
-        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail}/>
+        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} />;
       } else {
         return null;
       }
     }
+    return null;
   }
 
   render() {

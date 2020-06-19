@@ -1,3 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import '../styles/GalleryDetail.css';
 
@@ -29,22 +34,26 @@ class GalleryDetail extends React.Component {
     // let currImage = this.props.photos.room_photos[4].imageUrl;
     let prevBtn;
     let nextBtn;
-    if(this.state.currPhotoIdx === 0) {
+    if (this.state.currPhotoIdx === 0) {
       prevBtn = null;
     } else {
-      prevBtn = <button className="prevBtn" onClick={this.prevClickHandler}>prev</button>
+      prevBtn = <button className="prevBtn" onClick={this.prevClickHandler}>prev</button>;
     }
 
-    if(this.state.currPhotoIdx === this.props.photos.room_photos.length - 1) {
+    if (this.state.currPhotoIdx === this.props.photos.room_photos.length - 1) {
       nextBtn = null;
     } else {
-      nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}>next</button>
+      nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}>next</button>;
     }
 
     return (
       <div>
         <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
-    <span className="idxInfo">{this.state.currPhotoIdx + 1 + ' / ' + this.props.photos.room_photos.length}</span>
+        <span className="idxInfo">
+          {this.state.currPhotoIdx + 1}
+          {' / '}
+          {this.props.photos.room_photos.length}
+        </span>
         <div className="gallery-container-detail">
           <div className="gallery-item-detail">
             <div className="image-detail">

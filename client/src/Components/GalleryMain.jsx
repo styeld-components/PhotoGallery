@@ -1,5 +1,8 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-// import '../../dist/style.css'
 import '../styles/GalleryMain.css';
 
 class GalleryMain extends React.Component {
@@ -46,11 +49,13 @@ class GalleryMain extends React.Component {
           </div>
         </div>
         <div className="gallery-container">
-         <div className="gallery-item">
+          <div className="gallery-item">
             <div className="image">
               <img src={this.props.photos.room_photos[4].imageUrl} />
             </div>
-              <button className="showAllBtn" onClick={this.onClickHandler}>Show all photos</button>
+            <button className="showAllBtn" onClick={this.onClickHandler}>
+              Show all photos
+            </button>
           </div>
         </div>
       </div>
