@@ -12,7 +12,7 @@ class GalleryMain extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="gallery-container">
+        <div className="gallery-container w-2 h-2">
           <div className="gallery-item">
             <div className="image">
               <img src={this.props.photos.room_photos[0].imageUrl} />
