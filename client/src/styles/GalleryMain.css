@@ -46,7 +46,7 @@
   border-bottom-right-radius: 10px;
 }
 
-button {
+.showAllBtn {
   position: absolute;
   top: 70%;
   left: 30%;
@@ -64,14 +64,19 @@ button {
   transform: scale(1);
 }
 
-button:active {
+.showAllBtn:active {
   transform: scale(0.9) perspective(1px)
 }
 
-button:focus {
+.showAllBtn:focus {
   outline:0;
 }
 
+.closeBtn {
+  display: inline-block;
+  color: black;
+  content: "\00d7";
+}
 
 .w-1{
   grid-column: span 1;

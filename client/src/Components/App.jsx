@@ -12,6 +12,7 @@ class App extends React.Component {
       view: 'main',
     };
     this.onShowAll = this.onShowAll.bind(this);
+    this.onExitDetail = this.onExitDetail.bind(this)
   }
 
   componentDidMount() {
@@ -29,8 +30,11 @@ class App extends React.Component {
   }
 
   onShowAll() {
-    console.log('showallll')
     this.setState({ view: 'showAll' });
+  }
+
+  onExitDetail() {
+    this.setState({ view: 'main' });
   }
 
   renderView() {
@@ -46,7 +50,7 @@ class App extends React.Component {
       if (view === 'main') {
         return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} />;
       } else if (view === 'showAll') {
-        return <GalleryDetail />
+        return <GalleryDetail onExitDetail={this.onExitDetail}/>
       }
       // if (view === 'main') {
       //   return mainPhoto.map((photo, index) => <GalleryMain photo={photo} key={index} />);
