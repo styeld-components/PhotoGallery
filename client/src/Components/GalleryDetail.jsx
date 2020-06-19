@@ -44,14 +44,12 @@ class GalleryDetail extends React.Component {
     return (
       <div>
         <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
-    <span>{this.state.currPhotoIdx + 1 + ' / ' + this.props.photos.room_photos.length}</span>
+    <span className="idxInfo">{this.state.currPhotoIdx + 1 + ' / ' + this.props.photos.room_photos.length}</span>
         <div className="gallery-container-detail">
           <div className="gallery-item-detail">
             <div className="image-detail">
-              {/* <button className="prevBtn" onClick={this.prevClickHandler}>prev</button> */}
               {prevBtn}
-              <img src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
-              {/* <button className="nextBtn" onClick={this.nextClickHandler}>next</button> */}
+              <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
               {nextBtn}
             </div>
           </div>

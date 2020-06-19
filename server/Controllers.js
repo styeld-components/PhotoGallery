@@ -3,6 +3,7 @@ const Models = require('./Models.js');
 function getPhotos(req, res) {
   console.log('reached controller')
   const roomId = req.params.roomId;
+  console.log("roomId: ", roomId)
   Models.getPhotos(roomId, (err, data) => {
     if(err) {
       res.status(400).send(err);

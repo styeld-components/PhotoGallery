@@ -7,3 +7,24 @@
   height: 50%;
   overflow: hidden;
 }
+
+.gallery-container-detail .gallery-item-detail .image-detail {
+  display: flex;
+}
+
+.detailImg {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.idxInfo {
+  display:table;
+  margin:0 auto;
+}
+
+.gallery-container-detail .gallery-item-detail .image-detail .nextBtn {
+  float: right;
+}
+
