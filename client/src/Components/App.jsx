@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
+import GalleryDetail from './GalleryDetail.jsx';
 // import '../styles/GalleryMain.css';
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
       photos: [],
       view: 'main',
     };
+    this.onShowAll = this.onShowAll.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +28,11 @@ class App extends React.Component {
     });
   }
 
+  onShowAll() {
+    console.log('showallll')
+    this.setState({ view: 'showAll' });
+  }
+
   renderView() {
     const { view } = this.state;
 
@@ -37,7 +44,9 @@ class App extends React.Component {
         mainPhoto.push(list[0].room_photos[i]);
       }
       if (view === 'main') {
-        return <GalleryMain photos={this.state.photos[0]} />;
+        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} />;
+      } else if (view === 'showAll') {
+        return <GalleryDetail />
       }
       // if (view === 'main') {
       //   return mainPhoto.map((photo, index) => <GalleryMain photo={photo} key={index} />);
