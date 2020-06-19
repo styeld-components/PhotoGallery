@@ -50,11 +50,8 @@ class App extends React.Component {
       if (view === 'main') {
         return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} />;
       } else if (view === 'showAll') {
-        return <GalleryDetail onExitDetail={this.onExitDetail}/>
+        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail}/>
       }
-      // if (view === 'main') {
-      //   return mainPhoto.map((photo, index) => <GalleryMain photo={photo} key={index} />);
-      // }
     }
   }
 
