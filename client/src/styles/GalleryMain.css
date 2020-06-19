@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
-  grid-gap: 10px;
+  grid-gap: 7px;
 
 }
 
@@ -25,7 +25,53 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+  cursor: pointer;
+  transition: 0.5s linear;
 }
+
+.gallery-item:hover .image img {
+  filter: brightness(70%);
+}
+
+.container .gallery-container:nth-child(1) .image img {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.container .gallery-container:nth-child(3) .image img {
+  border-top-right-radius: 10px;
+}
+
+.container .gallery-container:nth-child(5) .image img {
+  border-bottom-right-radius: 10px;
+}
+
+button {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  cursor: pointer;
+	background-color: white;
+	border-radius: 8px;
+	border: 1px solid black;
+	display: inline-block;
+	cursor: pointer;
+  color: black;
+  padding: 7px 14px;
+	font-family: Arial;
+  font-size:12px;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+button:active {
+  transform: scale(0.9) perspective(1px)
+}
+
+button:focus {
+  outline:0;
+}
+
 
 .w-1{
   grid-column: span 1;

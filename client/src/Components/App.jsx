@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
-import '../styles/GalleryMain.css';
+// import '../styles/GalleryMain.css';
 
 class App extends React.Component {
   constructor(props) {
