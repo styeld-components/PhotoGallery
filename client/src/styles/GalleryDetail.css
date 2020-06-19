@@ -1,3 +1,9 @@
 .closeBtn {
 
 }
+
+.gallery-container-detail .gallery-item-detail .image-detail img {
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+}
