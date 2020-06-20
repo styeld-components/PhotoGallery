@@ -912,7 +912,7 @@ const sampleGallery = [{
 },
 ];
 
-const insertSampleGalleries = function() {
+const insertSampleGalleries = function () {
   Gallery.create(sampleGallery)
     .then(() => db.disconnect());
 };

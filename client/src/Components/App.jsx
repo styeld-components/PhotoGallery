@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable no-else-return */
 /* eslint-disable react/destructuring-assignment */
@@ -5,7 +6,6 @@ import React from 'react';
 import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
 import GalleryDetail from './GalleryDetail.jsx';
-// import '../styles/GalleryMain.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +43,6 @@ class App extends React.Component {
 
   renderView() {
     const { view } = this.state;
-
     const mainPhoto = [];
     const list = this.state.photos;
     if (list.length !== 0) {
