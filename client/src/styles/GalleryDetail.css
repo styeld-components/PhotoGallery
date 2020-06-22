@@ -18,11 +18,31 @@
 }
 
 .idxInfo {
-  display:table;
-  margin:0 auto;
+  display: inline;
+  position: absolute;
+  left: 45%;
 }
 
 .gallery-container-detail .gallery-item-detail .image-detail .nextBtn {
   float: right;
 }
 
+.shareBtn {
+  display: inline;
+  float: right;
+}
+
+.saveListBtn {
+  display: inline;
+  float: right;
+  margin-right: 25px;
+}
+
+.detail-top-row {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.closeBtn {
+  margin-left: 25px;
+}

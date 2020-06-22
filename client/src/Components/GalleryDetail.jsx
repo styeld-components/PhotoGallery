@@ -73,14 +73,16 @@ class GalleryDetail extends React.Component {
     return (
       <div>
         {popUp}
+        <div className="detail-top-row">
         <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
         <span className="idxInfo">
           {this.state.currPhotoIdx + 1}
           {' / '}
           {this.props.photos.room_photos.length}
         </span>
-        <button className="shareIcn" onClick={this.shareClickHandler}>Share Icon</button>
-        <button className="saveListIcn" onClick={this.saveClickHandler}>Save Icon</button>
+        <button className="saveListBtn" onClick={this.saveClickHandler}>Save Icon</button>
+        <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
+        </div>
         <div className="gallery-container-detail">
           <div className="gallery-item-detail">
             <div className="image-detail">
