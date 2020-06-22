@@ -15,6 +15,16 @@ class GalleryDetail extends React.Component {
     this.closeClickHandler = this.closeClickHandler.bind(this);
     this.nextClickHandler = this.nextClickHandler.bind(this);
     this.prevClickHandler = this.prevClickHandler.bind(this);
+    this.shareClickHandler = this.shareClickHandler.bind(this);
+    this.saveClickHandler = this.saveClickHandler.bind(this);
+  }
+
+  shareClickHandler() {
+
+  }
+
+  saveClickHandler() {
+
   }
 
   closeClickHandler() {
@@ -54,6 +64,8 @@ class GalleryDetail extends React.Component {
           {' / '}
           {this.props.photos.room_photos.length}
         </span>
+        <button className="shareIcn" onClick={this.shareClickHandler}>Share Icon</button>
+        <button className="saveListIcn" onClick={this.saveClickHandler}>Save Icon</button>
         <div className="gallery-container-detail">
           <div className="gallery-item-detail">
             <div className="image-detail">
