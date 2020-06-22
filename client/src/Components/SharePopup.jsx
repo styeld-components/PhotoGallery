@@ -10,17 +10,18 @@ class SharePopup extends React.Component {
     super(props);
     this.state = {
     };
-    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onCloseHandler = this.onCloseHandler.bind(this);
   }
 
-  onClickHandler() {
+  onCloseHandler() {
+    this.props.closePopup();
   }
 
   render() {
     return (
-      <div  className='share-popup'>
+      <div className='share-popup'>
         <div className='share-popup-inner'>
-          <button>close</button>
+          <button onClick={this.onCloseHandler}>close</button>
         </div>
       </div>
     );

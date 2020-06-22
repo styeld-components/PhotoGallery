@@ -10,18 +10,18 @@ class SavePopup extends React.Component {
     super(props);
     this.state = {
     };
-    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onCloseHandler = this.onCloseHandler.bind(this);
   }
 
-  onClickHandler() {
-
+  onCloseHandler() {
+    this.props.closePopup();
   }
 
   render() {
     return (
-      <div className='save-popup'>
-        <div className='save-popup-inner'>
-
+      <div className="save-popup">
+        <div className="save-popup-inner">
+          <button onClick={this.onCloseHandler}>close</button>
         </div>
       </div>
     );

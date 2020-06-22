@@ -63,9 +63,9 @@ class GalleryDetail extends React.Component {
 
     let popUp;
     if (this.state.showSavePopup) {
-      popUp = <SavePopup />;
+      popUp = <SavePopup closePopup={this.saveClickHandler} />;
     } else if (this.state.showSharePopup) {
-      popUp = <SharePopup />;
+      popUp = <SharePopup closePopup={this.shareClickHandler} />;
     } else {
       popUp = null;
     }
