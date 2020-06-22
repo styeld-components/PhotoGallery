@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import SharePopup from './SharePopup.jsx';
+import SavePopup from './SavePopup.jsx';
 import '../styles/GalleryDetail.css';
 
 class GalleryDetail extends React.Component {
@@ -11,6 +14,8 @@ class GalleryDetail extends React.Component {
     super(props);
     this.state = {
       currPhotoIdx: 0,
+      showSharePopup: false,
+      showSavePopup: false,
     };
     this.closeClickHandler = this.closeClickHandler.bind(this);
     this.nextClickHandler = this.nextClickHandler.bind(this);
@@ -20,11 +25,11 @@ class GalleryDetail extends React.Component {
   }
 
   shareClickHandler() {
-
+    this.setState({ showSharePopup: !this.state.showSharePopup });
   }
 
   saveClickHandler() {
-
+    this.setState({ showSavePopup: !this.state.showSavePopup });
   }
 
   closeClickHandler() {
@@ -56,8 +61,18 @@ class GalleryDetail extends React.Component {
       nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}>next</button>;
     }
 
+    let popUp;
+    if (this.state.showSavePopup) {
+      popUp = <SavePopup />;
+    } else if (this.state.showSharePopup) {
+      popUp = <SharePopup />;
+    } else {
+      popUp = null;
+    }
+
     return (
       <div>
+        {popUp}
         <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
         <span className="idxInfo">
           {this.state.currPhotoIdx + 1}

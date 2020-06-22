@@ -3,6 +3,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
+import '../styles/SavePopup.css';
 
 class SavePopup extends React.Component {
   constructor(props) {
@@ -13,12 +14,15 @@ class SavePopup extends React.Component {
   }
 
   onClickHandler() {
+
   }
 
   render() {
     return (
-      <div>
+      <div className='save-popup'>
+        <div className='save-popup-inner'>
 
+        </div>
       </div>
     );
   }

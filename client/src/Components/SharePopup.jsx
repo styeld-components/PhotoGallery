@@ -3,6 +3,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
+import '../styles/SharePopup.css';
 
 class SharePopup extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class SharePopup extends React.Component {
     return (
       <div  className='share-popup'>
         <div className='share-popup-inner'>
-
+          <button>close</button>
         </div>
       </div>
     );
