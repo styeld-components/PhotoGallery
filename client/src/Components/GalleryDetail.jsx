@@ -74,24 +74,22 @@ class GalleryDetail extends React.Component {
       <div>
         {popUp}
         <div className="detail-top-row">
-        <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
-        <span className="idxInfo">
-          {this.state.currPhotoIdx + 1}
-          {' / '}
-          {this.props.photos.room_photos.length}
-        </span>
-        <button className="saveListBtn" onClick={this.saveClickHandler}>Save Icon</button>
-        <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
+          <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
+          <span className="idxInfo">
+            {this.state.currPhotoIdx + 1}
+            {' / '}
+            {this.props.photos.room_photos.length}
+          </span>
+          <button className="saveListBtn" onClick={this.saveClickHandler}>Save Icon</button>
+          <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
         </div>
-        <div className="gallery-container-detail">
-          <div className="gallery-item-detail">
-            <div className="image-detail">
+          <div>
               {prevBtn}
+
               <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
+
               {nextBtn}
-            </div>
-          </div>
-        </div>
+              </div>
       </div>
     );
   }

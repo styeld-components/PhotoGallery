@@ -2,8 +2,8 @@
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-auto-rows: 200px; */
-  grid-template-rows: unset;
+  grid-auto-rows: 200px;
+  /* grid-template-rows: unset; */
   grid-gap: 7.5px;
 
 }
