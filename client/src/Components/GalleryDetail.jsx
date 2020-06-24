@@ -84,13 +84,15 @@ class GalleryDetail extends React.Component {
           <button className="saveListBtn" onClick={this.saveClickHandler}>Save Icon</button>
           <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
         </div>
-          <div>
-              {prevBtn}
-
-              <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
-
-              {nextBtn}
+        <div className="detail-bottom-wrapper">
+          <div className="prevBtn-wrapper">
+            {prevBtn}
           </div>
+          <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
+          <div className="nextBtn-wrapper">
+            {nextBtn}
+          </div>
+        </div>
       </div>
     );
   }

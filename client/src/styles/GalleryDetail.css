@@ -1,21 +1,9 @@
-/* .gallery-container-detail .gallery-item-detail .image-detail img {
-  width: 50%;
-  height: 50%;
-  overflow: hidden;
-} */
-
-/* .gallery-container-detail .gallery-item-detail .image-detail {
-  display: flex;
-  align-items: center;
-} */
-
 .detailImg {
   display: inline-block;
+  height: 65vh;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  max-width: 600px;
-  max-height: 400px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -25,15 +13,20 @@
   left: 45%;
 }
 
+.detail-bottom-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .prevBtn {
-  display: inline-block;
   float: left;
+  top: 50%;
 }
 
 .nextBtn {
   display: inline-block;
   float: right;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .shareBtn {
@@ -48,8 +41,8 @@
 }
 
 .detail-top-row {
-  margin-top: 35px;
-  margin-bottom: 35px;
+  margin-top: 45px;
+  margin-bottom: 30px;
 }
 
 .closeBtn {
