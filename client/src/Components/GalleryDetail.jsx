@@ -13,7 +13,7 @@ class GalleryDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currPhotoIdx: 0,
+      currPhotoIdx: this.props.clickedPhotoIdx || 0,
       showSharePopup: false,
       showSavePopup: false,
     };
@@ -33,6 +33,7 @@ class GalleryDetail extends React.Component {
   }
 
   closeClickHandler() {
+    console.log('clicked!')
     this.props.onExitDetail();
   }
 

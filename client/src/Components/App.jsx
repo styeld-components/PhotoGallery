@@ -38,6 +38,7 @@ class App extends React.Component {
   }
 
   onExitDetail() {
+    console.log('app close')
     this.setState({ view: 'main' });
   }
 
@@ -50,7 +51,8 @@ class App extends React.Component {
         mainPhoto.push(list[0].room_photos[i]);
       }
       if (view === 'main') {
-        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} />;
+        console.log('main!!');
+        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} />;
       } else if (view === 'showAll') {
         return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} />;
       } else {
