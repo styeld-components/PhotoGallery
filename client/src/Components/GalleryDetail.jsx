@@ -7,9 +7,13 @@
 import React from 'react';
 import SharePopup from './SharePopup.jsx';
 import SavePopup from './SavePopup.jsx';
-import '../styles/GalleryDetail.css';
-import Save from './airbnb-save.svg';
 import SVG from 'react-inlinesvg';
+import Close from './airbnb-close.svg';
+import Save from './airbnb-save.svg';
+import Share from './airbnb-share.svg';
+import Next from './airbnb-next.svg';
+import Prev from './airbnb-prev.svg';
+import '../styles/GalleryDetail.css';
 
 class GalleryDetail extends React.Component {
   constructor(props) {
@@ -55,13 +59,13 @@ class GalleryDetail extends React.Component {
     if (this.state.currPhotoIdx === 0) {
       prevBtn = null;
     } else {
-      prevBtn = <button className="prevBtn" onClick={this.prevClickHandler}>prev</button>;
+      prevBtn = <button className="prevBtn" onClick={this.prevClickHandler}><SVG src={Prev} className="svg-prev" /></button>;
     }
 
     if (this.state.currPhotoIdx === this.props.photos.room_photos.length - 1) {
       nextBtn = null;
     } else {
-      nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}>next</button>;
+      nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}><SVG src={Next} /></button>;
     }
 
     let popUp;
@@ -77,14 +81,14 @@ class GalleryDetail extends React.Component {
       <div>
         {popUp}
         <div className="detail-top-row">
-          <button className="closeBtn" onClick={this.closeClickHandler}>Close</button>
+          <button className="closeBtn" onClick={this.closeClickHandler}><SVG src={Close} />Close</button>
           <span className="idxInfo">
             {this.state.currPhotoIdx + 1}
             {' / '}
             {this.props.photos.room_photos.length}
           </span>
-          <SVG src={Save} className="saveListBtn" onClick={this.saveClickHandler} />
-          <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
+          <button className="saveListBtn" onClick={this.saveClickHandler}><SVG src={Save} /></button>
+          <button className="shareBtn" onClick={this.shareClickHandler}><SVG src={Share} /></button>
         </div>
         <div className="detail-bottom-wrapper">
           <div className="prevBtn-wrapper">
