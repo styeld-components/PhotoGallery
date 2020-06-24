@@ -8,6 +8,8 @@ import React from 'react';
 import SharePopup from './SharePopup.jsx';
 import SavePopup from './SavePopup.jsx';
 import '../styles/GalleryDetail.css';
+import Save from './airbnb-save.svg';
+import SVG from 'react-inlinesvg';
 
 class GalleryDetail extends React.Component {
   constructor(props) {
@@ -81,7 +83,7 @@ class GalleryDetail extends React.Component {
             {' / '}
             {this.props.photos.room_photos.length}
           </span>
-          <button className="saveListBtn" onClick={this.saveClickHandler}>Save Icon</button>
+          <SVG src={Save} className="saveListBtn" onClick={this.saveClickHandler} />
           <button className="shareBtn" onClick={this.shareClickHandler}>Share Icon</button>
         </div>
         <div className="detail-bottom-wrapper">
