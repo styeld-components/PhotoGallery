@@ -90,7 +90,7 @@ class GalleryDetail extends React.Component {
               <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
 
               {nextBtn}
-              </div>
+          </div>
       </div>
     );
   }

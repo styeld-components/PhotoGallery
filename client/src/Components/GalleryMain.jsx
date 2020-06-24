@@ -62,10 +62,10 @@ class GalleryMain extends React.Component {
           <div className="gallery-item">
             <div className="image">
               <img src={this.props.photos.room_photos[4].imageUrl} />
-            </div>
             <button className="showAllBtn" onClick={this.onClickHandler}>
               Show all photos
             </button>
+            </div>
           </div>
         </div>
       </div>
