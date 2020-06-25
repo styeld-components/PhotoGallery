@@ -1,15 +1,17 @@
 .detail-top-row {
   margin-top: 37px;
-  margin-bottom: 30px;
+  margin-bottom: 39px;
 }
 
 .detailImg {
   display: inline-block;
-  height: 65vh;
+  height: 68vh;
+  max-width: 55%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   text-align: center;
+  object-fit: cover;
 }
 
 .idxInfo {
@@ -17,7 +19,7 @@
   position: absolute;
   left: 49%;
   margin-top: 6px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 200;
   font-size: 15px;
 }
@@ -30,12 +32,33 @@
 .prevBtn {
   float: left;
   top: 50%;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  margin-left: 11px;
+  margin-bottom: 6px;
+  background-color: white;
+  border: 1px solid	#b2b2b2;
+}
+
+.prevBtn:hover {
+  background-color: #f7f7f7;
 }
 
 .nextBtn {
   display: inline-block;
   float: right;
   vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  background-color: white;
+  border: 1px solid	#b2b2b2;
+}
+
+.nextBtn:hover {
+  background-color: #f7f7f7;
 }
 
 .shareBtn {
