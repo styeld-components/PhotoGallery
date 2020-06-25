@@ -1,37 +1,87 @@
+.share-popup-outter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.95;
+  z-index: 3;
+}
 
 .share-popup-inner {
   position: absolute;
-  left: 33%;
-  right: 33%;
-  top: 13%;
-  bottom: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 500;
   margin: auto;
   background: white;
   opacity: 1;
+  z-index: 4;
+  overflow: auto;
 }
 
-.share-popup-inner {
-  width:200px;
-  height: 1500px;
-  left: 33%;
-  right: 33%;
-  top: 13%;
-  bottom: 13%;
-  background: white;
-  opacity: 1;
-  overflow-y: scroll;
-
+.share-content-container {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* .share-popup {
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  background-color:black;
-  opacity: 0.95;
+.share-closeBtn-wrapper {
+  display: block;
+}
+
+tr {
+  display: block;
+  width: 240px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 20px;
+  border-bottom: 1px solid rgb(235, 235, 235)
+}
+
+.share-span {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(72, 72, 72)
+}
+
+.share-method-link {
+  /* position: relative; */
+  font-size: 15px;
+  color: rgb(0, 132, 137);
+  margin-left: 8px;
+}
+
+.share-closeBtn-wrapper {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.share-close-btn {
+  background-color: #ffffff;
+  margin: 0px 0px 24px;
+  border: none;
+}
+
+
+
+
+
+
+
+
+.share-close-btn:focus {
+  outline: 0;
+}
+
+/* .clear-background {
+  position: relative;
+  display: block;
+  width: 250px;
+  height: 100px;
+  background-color: black;
+  opacity: 1.0;
 } */

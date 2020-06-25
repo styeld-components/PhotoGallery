@@ -41,7 +41,7 @@ class SavePopup extends React.Component {
 
     return (
       <div className="save-popup">
-        <div className="popup-outter" onClick={this.onClickDetailHandler}></div>
+        <div className="save-popup-outter" onClick={this.onClickDetailHandler}></div>
         <div className="save-popup-inner">
           <div className="close-form-btn-wrapper">
             <button className="close-form-btn" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
