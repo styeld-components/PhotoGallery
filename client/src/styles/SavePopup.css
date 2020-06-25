@@ -1,21 +1,33 @@
-.save-popup {
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  margin: auto;
+
+.popup-outter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color:black;
   opacity: 0.95;
 }
 
 .save-popup-inner {
   position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
+  left: 24%;
+  right: 24%;
+  top: 13%;
+  bottom: 13%;
   margin: auto;
-  background: white;
+  /* background-color: rgba(255, 255, 255, 1); */
+  background-color: #ffffff;
+  opacity: 1 !important;
 }
 
+/* .save-popup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+} */

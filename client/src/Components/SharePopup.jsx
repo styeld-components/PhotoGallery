@@ -20,6 +20,7 @@ class SharePopup extends React.Component {
   render() {
     return (
       <div className='share-popup'>
+        <div className="popup-outter"></div>
         <div className='share-popup-inner'>
           <button onClick={this.onCloseHandler}>close</button>
         </div>

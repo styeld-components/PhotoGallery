@@ -20,6 +20,7 @@ class SavePopup extends React.Component {
   render() {
     return (
       <div className="save-popup">
+        <div className="popup-outter"></div>
         <div className="save-popup-inner">
           <button onClick={this.onCloseHandler}>close</button>
         </div>
