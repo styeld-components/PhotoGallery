@@ -15,12 +15,104 @@
   position: absolute;
   left: 24%;
   right: 24%;
-  top: 13%;
-  bottom: 13%;
+  top: 12%;
+  bottom: 12%;
   margin: auto;
-  /* background-color: rgba(255, 255, 255, 1); */
   background-color: #ffffff;
   opacity: 1 !important;
+}
+
+.close-form-btn {
+  background-color: #ffffff;
+  margin: 0px 0px 24px;
+  border: none;
+}
+
+.close-form-btn-wrapper {
+  margin-top: 26px;
+  margin-left: 26px;
+}
+
+.saveToList-stl {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  font-size: 24px;
+  color: rgb(72, 72, 72);
+  margin-left: 30px;
+}
+
+.saveToList-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 450;
+  font-size: 15px;
+  color: rgb(72, 72, 72);
+  margin-top: 30px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.saveToList-input-wrapper {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.saveToList-input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+  padding: 11px;
+  height: 22px;
+  width: 440px;
+  border-radius: 3px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.saveToList-btn-wrapper {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.saveToList-cancel-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  font-size: 14px;
+  color: #008489;
+  padding: 12px 22px;
+  margin-right: 8px;
+  border-color: #008489;
+  background-color: #ffffff;
+  border-width: 2px;
+  border-radius: 8px;
+  border-style: solid;
+  float: right;
+  cursor: pointer;
+}
+
+.saveToList-create-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: rgba(0, 132, 137, 0.3);
+  padding: 14px 22px;
+  margin-right: 12px;
+  border-radius: 8px;
+  border-style: none;
+  float: right;
+}
+
+.close-form-btn:focus {
+  outline: 0;
+}
+
+.saveToList-cancel-btn:focus {
+  outline: 0;
+}
+
+.saveToList-create-btn:focus {
+  outline: 0;
 }
 
 /* .save-popup {

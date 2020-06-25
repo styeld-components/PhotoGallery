@@ -1,3 +1,28 @@
+
+.share-popup-inner {
+  position: absolute;
+  left: 33%;
+  right: 33%;
+  top: 13%;
+  bottom: 13%;
+  margin: auto;
+  background: white;
+  opacity: 1;
+}
+
+.share-popup-inner {
+  width:200px;
+  height: 1500px;
+  left: 33%;
+  right: 33%;
+  top: 13%;
+  bottom: 13%;
+  background: white;
+  opacity: 1;
+  overflow-y: scroll;
+
+}
+
 /* .share-popup {
   position:absolute;
   top:0;
@@ -10,15 +35,3 @@
   background-color:black;
   opacity: 0.95;
 } */
-
-.share-popup-inner {
-  position: absolute;
-  left: 24%;
-  right: 24%;
-  top: 13%;
-  bottom: 13%;
-  margin: auto;
-  background: white;
-  opacity: 1;
-}
-

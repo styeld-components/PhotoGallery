@@ -16,6 +16,7 @@ class SharePopup extends React.Component {
   onCloseHandler() {
     this.props.closePopup();
   }
+  // give triple div. top bottom  is opaque, middle is form
 
   render() {
     return (
