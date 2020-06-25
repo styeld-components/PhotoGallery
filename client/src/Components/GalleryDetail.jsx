@@ -22,6 +22,7 @@ class GalleryDetail extends React.Component {
       currPhotoIdx: this.props.clickedPhotoIdx || 0,
       showSharePopup: false,
       showSavePopup: false,
+      fadeLoaded: false,
     };
     this.closeClickHandler = this.closeClickHandler.bind(this);
     this.nextClickHandler = this.nextClickHandler.bind(this);
@@ -39,16 +40,16 @@ class GalleryDetail extends React.Component {
   }
 
   closeClickHandler() {
-    console.log('clicked!')
+    console.log('clicked!');
     this.props.onExitDetail();
   }
 
   nextClickHandler() {
-    this.setState({ currPhotoIdx: this.state.currPhotoIdx + 1 });
+    this.setState({ currPhotoIdx: this.state.currPhotoIdx + 1, fadeLoaded: !this.state.fadeLoaded });
   }
 
   prevClickHandler() {
-    this.setState({ currPhotoIdx: this.state.currPhotoIdx - 1 });
+    this.setState({ currPhotoIdx: this.state.currPhotoIdx - 1, fadeLoaded: !this.state.fadeLoaded });
   }
 
   render() {
@@ -77,6 +78,8 @@ class GalleryDetail extends React.Component {
       popUp = null;
     }
 
+    const fadeClasses = this.state.fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
+
     return (
       <div>
         {popUp}
@@ -96,7 +99,7 @@ class GalleryDetail extends React.Component {
           <div className="prevBtn-wrapper">
             {prevBtn}
           </div>
-          <img className="detailImg" src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
+          <img className={fadeClasses} src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
           <div className="nextBtn-wrapper">
             {nextBtn}
           </div>
