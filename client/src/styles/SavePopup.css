@@ -6,20 +6,23 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color:black;
+  background-color: black;
   opacity: 0.95;
+  z-index: 3;
 }
 
 .save-popup-inner {
   position: absolute;
-  /* left: 24%;
-  /* right: 24%; */
+  left: 50%;
+  transform: translateX(-50%);
   top: 12%;
   bottom: 12%;
   width: 568px;
+  min-height: 400px;
   margin: auto;
   background-color: #ffffff;
   opacity: 1 !important;
+  z-index: 4;
 }
 
 .close-form-btn {

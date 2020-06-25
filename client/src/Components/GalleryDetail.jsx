@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable import/extensions */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/button-has-type */
@@ -5,9 +8,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import SVG from 'react-inlinesvg';
 import SharePopup from './SharePopup.jsx';
 import SavePopup from './SavePopup.jsx';
-import SVG from 'react-inlinesvg';
 import Close from './airbnb-close.svg';
 import Save from './airbnb-save.svg';
 import Share from './airbnb-share.svg';
@@ -93,7 +96,10 @@ class GalleryDetail extends React.Component {
       <div>
         {popUp}
         <div className="detail-top-row">
-          <button className="closeBtn" onClick={this.closeClickHandler}><SVG src={Close} />Close</button>
+          <button className="closeBtn" onClick={this.closeClickHandler}>
+            <SVG src={Close} />
+            Close
+          </button>
           <span className="idxInfo">
             {this.state.currPhotoIdx + 1}
             {' / '}

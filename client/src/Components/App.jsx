@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
@@ -40,7 +41,7 @@ class App extends React.Component {
   }
 
   onExitDetail() {
-    console.log('app close')
+    console.log('app close');
     this.setState({ view: 'main' });
   }
 
