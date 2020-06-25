@@ -29,6 +29,7 @@ class GalleryDetail extends React.Component {
     this.prevClickHandler = this.prevClickHandler.bind(this);
     this.shareClickHandler = this.shareClickHandler.bind(this);
     this.saveClickHandler = this.saveClickHandler.bind(this);
+    this.backToGalleryDetail = this.backToGalleryDetail.bind(this);
   }
 
   shareClickHandler() {
@@ -52,6 +53,13 @@ class GalleryDetail extends React.Component {
     this.setState({ currPhotoIdx: this.state.currPhotoIdx - 1, fadeLoaded: !this.state.fadeLoaded });
   }
 
+  backToGalleryDetail() {
+    this.setState({
+      showSavePopup: false,
+      showSharePopup: false,
+    });
+  }
+
   render() {
     // let currPhotoIdx = 1;
     // let currImage = this.props.photos.room_photos[4].imageUrl;
@@ -71,9 +79,9 @@ class GalleryDetail extends React.Component {
 
     let popUp;
     if (this.state.showSavePopup) {
-      popUp = <SavePopup closePopup={this.saveClickHandler} />;
+      popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
     } else if (this.state.showSharePopup) {
-      popUp = <SharePopup closePopup={this.shareClickHandler} />;
+      popUp = <SharePopup closePopup={this.shareClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
     } else {
       popUp = null;
     }
@@ -81,17 +89,16 @@ class GalleryDetail extends React.Component {
     const fadeClasses = this.state.fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
 
     return (
+
       <div>
         {popUp}
         <div className="detail-top-row">
           <button className="closeBtn" onClick={this.closeClickHandler}><SVG src={Close} />Close</button>
-          {/* <div className="idxInfo-wrapper"> */}
           <span className="idxInfo">
             {this.state.currPhotoIdx + 1}
             {' / '}
             {this.props.photos.room_photos.length}
           </span>
-          {/* </div> */}
           <button className="saveListBtn" onClick={this.saveClickHandler}><SVG src={Save} /></button>
           <button className="shareBtn" onClick={this.shareClickHandler}><SVG src={Share} /></button>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 /* eslint-disable no-else-return */
@@ -17,6 +18,7 @@ class App extends React.Component {
     this.renderView = this.renderView.bind(this);
     this.onShowAll = this.onShowAll.bind(this);
     this.onExitDetail = this.onExitDetail.bind(this);
+    this.saveToList = this.saveToList.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +42,22 @@ class App extends React.Component {
   onExitDetail() {
     console.log('app close')
     this.setState({ view: 'main' });
+  }
+
+  saveToList(name) {
+    $.ajax({
+      method: 'POST',
+      url: '/api/0/photogallery',
+      data: {
+        name,
+      },
+      success: () => {
+        console.log('successfully save to a list ajax');
+      },
+      error: (err) => {
+        console.log('err on ajax save to list post: ', err);
+      },
+    });
   }
 
   renderView() {
