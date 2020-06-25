@@ -11,18 +11,27 @@ class SavePopup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      createValid: false
+      listName: '',
+      createValid: false,
     };
     this.onCloseHandler = this.onCloseHandler.bind(this);
+    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
   }
 
   onCloseHandler() {
     this.props.closePopup();
   }
 
-  render() {
+  onInputChangeHandler(e) {
+    this.setState({ listName: e.target.value, createValid: true });
 
-    const cursorClasses = this.state.createValid ? 'saveToList-create-btn not-allowed-cursor' : 'saveToList-create-btn  allowed-cursor';
+    if (e.target.value.length === 0) {
+      this.setState({ createValid: false });
+    }
+  }
+
+  render() {
+    const cursorClasses = this.state.createValid ? 'saveToList-create-btn allowed-cursor' : 'saveToList-create-btn not-allowed-cursor';
 
     return (
       <div className="save-popup">
@@ -38,7 +47,7 @@ class SavePopup extends React.Component {
             Name
           </div>
           <div className="saveToList-input-wrapper">
-            <input className="saveToList-input" name="name" placeholder="Ex: Summer vacation" type="type" />
+            <input className="saveToList-input" name="name" placeholder="Ex: Summer vacation" type="text" value={this.state.listName} onChange={this.onInputChangeHandler} />
           </div>
           <div className="saveToList-btn-wrapper">
             <button className={cursorClasses}>

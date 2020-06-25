@@ -1,4 +1,3 @@
-
 .popup-outter {
   position: absolute;
   width: 100%;
@@ -13,11 +12,12 @@
 
 .save-popup-inner {
   position: absolute;
-  left: 24%;
-  right: 24%;
+  /* left: 24%;
+  /* right: 24%; */
   top: 12%;
   bottom: 12%;
-  margin: auto;
+  width: 568px;
+  margin: 0 auto;
   background-color: #ffffff;
   opacity: 1 !important;
 }
@@ -63,7 +63,7 @@
   color: rgb(120, 120, 120);
   padding: 11px;
   height: 22px;
-  width: 440px;
+  width: 480px;
   border-radius: 3px;
   border: 1px solid rgb(235, 235, 235);
 }
@@ -101,6 +101,14 @@
   border-radius: 8px;
   border-style: none;
   float: right;
+}
+
+.allowed-cursor {
+  cursor: pointer;
+}
+
+.not-allowed-cursor {
+  cursor: not-allowed;
 }
 
 .close-form-btn:focus {
