@@ -1,3 +1,8 @@
+.detail-top-row {
+  margin-top: 37px;
+  margin-bottom: 30px;
+}
+
 .detailImg {
   display: inline-block;
   height: 65vh;
@@ -10,7 +15,11 @@
 .idxInfo {
   display: inline;
   position: absolute;
-  left: 45%;
+  left: 49%;
+  margin-top: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
 }
 
 .detail-bottom-wrapper {
@@ -32,19 +41,43 @@
 .shareBtn {
   display: inline;
   float: right;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  margin-right: 1px;
+  border-radius: 50%;
+}
+
+.shareBtn:hover {
+  background-color: #f7f7f7;
 }
 
 .saveListBtn {
   display: inline;
   float: right;
-  margin-right: 25px;
+  margin-right: 26px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
 }
 
-.detail-top-row {
-  margin-top: 45px;
-  margin-bottom: 30px;
+.saveListBtn:hover {
+  background-color: #f7f7f7;
 }
+
 
 .closeBtn {
-  margin-left: 25px;
+  background: #e8e8e8;
+  margin-left: 27px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 450;
 }
+
