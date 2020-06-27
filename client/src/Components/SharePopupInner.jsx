@@ -16,7 +16,6 @@ import Copylink from './airbnb-copylink.svg';
 import Whatsapp from './airbnb-whatsapp.svg';
 import Sms from './airbnb-sms.svg';
 import Embed from './airbnb-embed.svg';
-
 import '../styles/SharePopup.css';
 
 class SharePopup extends React.Component {
@@ -29,79 +28,90 @@ class SharePopup extends React.Component {
 
   onCloseHandler() {
     console.log('close clicked');
-    this.props.closePopup();
+    this.props.backToGalleryDetail();
   }
   // give triple div. top bottom  is opaque, middle is form
 
   render() {
     return (
-      <div className="share-popup">
-        <div className="share-popup-outter"></div>
-        <div className="share-popup-inner">
-          <div className="clear-background"></div>
-          <div className="share-closeBtn-wrapper">
-            <button className="share-close-btn" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
-          </div>
-          <div className="share-content-container">
-            <table>
-              <tbody>
-                <tr className="share-row">
-                  <td>
-                    <span className="share-span">Share</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+      <div className="share-popup-inner">
+        <div className="share-closeBtn-wrapper">
+          <button className="share-close-btn" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
+        </div>
+        <div className="share-content-container">
+          <table>
+            <tbody>
+              <tr className="share-row">
+                <td>
+                  <span className="share-span">Share</span>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Facebook} />
                     <span className="share-method-link">Facebook</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Twitter} />
                     <span className="share-method-link">Twitter</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Messenger} />
                     <span className="share-method-link">Messenger</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Email} />
                     <span className="share-method-link">Email</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Copylink} />
                     <span className="share-method-link">Copy Link</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Whatsapp} />
                     <span className="share-method-link">WhatsApp</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Sms} />
                     <span className="share-method-link">SMS</span>
-                  </td>
-                </tr>
-                <tr className="share-row">
-                  <td>
+                  </button>
+                </td>
+              </tr>
+              <tr className="share-row">
+                <td>
+                  <button className="share-method-btn">
                     <SVG src={Embed} />
                     <span className="share-method-link">Embed</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="clear-background"></div>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     );

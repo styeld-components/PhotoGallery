@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prop-types */

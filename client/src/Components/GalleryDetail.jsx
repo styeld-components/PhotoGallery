@@ -9,7 +9,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import SVG from 'react-inlinesvg';
-import SharePopup from './SharePopup.jsx';
 import SavePopup from './SavePopup.jsx';
 import Close from './airbnb-close.svg';
 import Save from './airbnb-save.svg';
@@ -23,7 +22,6 @@ class GalleryDetail extends React.Component {
     super(props);
     this.state = {
       currPhotoIdx: this.props.clickedPhotoIdx || 0,
-      showSharePopup: false,
       showSavePopup: false,
       fadeLoaded: false,
     };
@@ -36,7 +34,7 @@ class GalleryDetail extends React.Component {
   }
 
   shareClickHandler() {
-    this.setState({ showSharePopup: !this.state.showSharePopup });
+    this.props.sharePopupHandler();
   }
 
   saveClickHandler() {
@@ -59,13 +57,10 @@ class GalleryDetail extends React.Component {
   backToGalleryDetail() {
     this.setState({
       showSavePopup: false,
-      showSharePopup: false,
     });
   }
 
   render() {
-    // let currPhotoIdx = 1;
-    // let currImage = this.props.photos.room_photos[4].imageUrl;
     let prevBtn;
     let nextBtn;
     if (this.state.currPhotoIdx === 0) {
@@ -83,8 +78,6 @@ class GalleryDetail extends React.Component {
     let popUp;
     if (this.state.showSavePopup) {
       popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
-    } else if (this.state.showSharePopup) {
-      popUp = <SharePopup closePopup={this.shareClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
     } else {
       popUp = null;
     }
@@ -92,9 +85,7 @@ class GalleryDetail extends React.Component {
     const fadeClasses = this.state.fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
 
     return (
-
-      <div>
-        {popUp}
+      <div className="galleryDetail-container">
         <div className="detail-top-row">
           <button className="closeBtn" onClick={this.closeClickHandler}>
             <SVG src={Close} />
@@ -117,6 +108,7 @@ class GalleryDetail extends React.Component {
             {nextBtn}
           </div>
         </div>
+        {popUp}
       </div>
     );
   }
