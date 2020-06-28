@@ -1,0 +1,17 @@
+.gallerydetailgrid-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallerydetailgrid-item .gallerydetailgrid-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallerydetailgrid-item .gallerydetailgrid-image img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

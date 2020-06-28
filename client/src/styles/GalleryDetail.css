@@ -4,6 +4,15 @@
   position: fixed;
 }
 
+@media screen and (max-width: 1110px) {
+  .galleryDetail-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 7.5px;
+  }
+}
+
 .detail-top-row {
   margin-top: 37px;
   margin-bottom: 35px;

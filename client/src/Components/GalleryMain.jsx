@@ -26,7 +26,7 @@ class GalleryMain extends React.Component {
 
   render() {
     if (this.state.photoAClicked) {
-      return <GalleryDetail clickedPhotoIdx={0} photos={this.props.photos} onExitDetail={this.props.onExitDetail} />;
+      return <GalleryDetail clickedPhotoIdx={0} photos={this.props.photos} sharePopupHandler={this.props.sharePopupHandler} onExitDetail={this.props.onExitDetail} />;
     }
     return (
       <div className="container">

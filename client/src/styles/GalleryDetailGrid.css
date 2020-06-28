@@ -1,0 +1,35 @@
+.gallerydetailgrid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  margin-right: 150px;
+  margin-left: 150px;
+  margin-top: 25px;
+  min-width: 500px;
+}
+
+.gallerydetailgrid-sub-container:nth-child(1) {
+  grid-column: span 2;
+}
+
+.gallerydetailgrid-sub-container:nth-child(3n + 1) {
+  grid-column: span 2;
+}
+
+.gallerydetailgrid-back-btn {
+  margin-top: 25px;
+  margin-left: 25px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.gallerydetailgrid-back-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.gallerydetailgrid-back-btn:focus {
+  outline:0;
+}

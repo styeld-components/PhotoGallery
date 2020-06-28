@@ -13,6 +13,7 @@ import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
 import GalleryDetail from './GalleryDetail.jsx';
 import SharePopupInner from './SharePopupInner.jsx';
+import GalleryDetailGrid from './GalleryDetailGrid.jsx';
 import '../styles/App.css';
 
 class App extends React.Component {
@@ -94,15 +95,20 @@ class App extends React.Component {
     const { view } = this.state;
     const mainPhoto = [];
     const list = this.state.photos;
+    const mql = window.matchMedia('(max-width: 1100px)');
     if (list.length !== 0) {
       for (let i = 0; i < 5; i += 1) {
         mainPhoto.push(list[0].room_photos[i]);
       }
       if (view === 'main') {
         console.log('main!!');
-        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} />;
+        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} sharePopupHandler={this.sharePopupHandler} onExitDetail={this.onExitDetail} />;
       } else if (view === 'showAll') {
-        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
+        if (mql.matches) {
+          return <GalleryDetailGrid photos={this.state.photos[0]} onExitDetail={this.onExitDetail} />;
+        } else {
+          return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
+        }
       } else {
         return null;
       }
