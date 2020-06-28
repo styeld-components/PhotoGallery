@@ -30,7 +30,6 @@ class SharePopup extends React.Component {
     console.log('close clicked');
     this.props.backToGalleryDetail();
   }
-  // give triple div. top bottom  is opaque, middle is form
 
   render() {
     return (

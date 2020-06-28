@@ -61,6 +61,7 @@ class GalleryDetail extends React.Component {
   }
 
   render() {
+    console.log('clickedPhotodtail: ', this.props.clickedPhotoIdx)
     let prevBtn;
     let nextBtn;
     if (this.state.currPhotoIdx === 0) {

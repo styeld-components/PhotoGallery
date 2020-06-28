@@ -23,6 +23,7 @@ class App extends React.Component {
       photos: [],
       view: 'main',
       showSharePopup: false,
+      clickedPhotoIdx: -1,
     };
     this.renderView = this.renderView.bind(this);
     this.onShowAll = this.onShowAll.bind(this);
@@ -31,6 +32,7 @@ class App extends React.Component {
     this.sharePopupHandler = this.sharePopupHandler.bind(this);
     this.backToGalleryDetail = this.backToGalleryDetail.bind(this);
     this.onClickDetailHandler = this.onClickDetailHandler.bind(this);
+    this.getClickedPhotoIdx = this.getClickedPhotoIdx.bind(this);
   }
 
   componentDidMount() {
@@ -53,13 +55,20 @@ class App extends React.Component {
 
   onExitDetail() {
     console.log('app close');
-    this.setState({ view: 'main' });
+    this.setState({
+      view: 'main',
+      clickedPhotoIdx: -1,
+    });
   }
 
   onClickDetailHandler() {
     this.setState({
       showSharePopup: false,
     });
+  }
+
+  getClickedPhotoIdx(index) {
+    this.setState({ clickedPhotoIdx: index });
   }
 
   backToGalleryDetail() {
@@ -100,9 +109,11 @@ class App extends React.Component {
       for (let i = 0; i < 5; i += 1) {
         mainPhoto.push(list[0].room_photos[i]);
       }
-      if (view === 'main') {
-        console.log('main!!');
-        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} sharePopupHandler={this.sharePopupHandler} onExitDetail={this.onExitDetail} />;
+      if (this.state.clickedPhotoIdx >= 0) {
+        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={this.state.clickedPhotoIdx} />;
+      } else if (view === 'main') {
+        console.log('main?')
+        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
       } else if (view === 'showAll') {
         if (mql.matches) {
           return <GalleryDetailGrid photos={this.state.photos[0]} onExitDetail={this.onExitDetail} />;

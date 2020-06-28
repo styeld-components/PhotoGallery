@@ -10,10 +10,13 @@ class GalleryMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photoAClicked: false,
     };
     this.onClickHandler = this.onClickHandler.bind(this);
     this.photoClickHandlerA = this.photoClickHandlerA.bind(this);
+    this.photoClickHandlerB = this.photoClickHandlerB.bind(this);
+    this.photoClickHandlerC = this.photoClickHandlerC.bind(this);
+    this.photoClickHandlerD = this.photoClickHandlerD.bind(this);
+    this.photoClickHandlerE = this.photoClickHandlerE.bind(this);
   }
 
   onClickHandler() {
@@ -21,13 +24,26 @@ class GalleryMain extends React.Component {
   }
 
   photoClickHandlerA() {
-    this.setState({ photoAClicked: !this.state.photoAClicked });
+    this.props.getClickedPhotoIdx(0);
+  }
+
+  photoClickHandlerB() {
+    this.props.getClickedPhotoIdx(1);
+  }
+
+  photoClickHandlerC() {
+    this.props.getClickedPhotoIdx(2);
+  }
+
+  photoClickHandlerD() {
+    this.props.getClickedPhotoIdx(3);
+  }
+
+  photoClickHandlerE() {
+    this.props.getClickedPhotoIdx(4);
   }
 
   render() {
-    if (this.state.photoAClicked) {
-      return <GalleryDetail clickedPhotoIdx={0} photos={this.props.photos} sharePopupHandler={this.props.sharePopupHandler} onExitDetail={this.props.onExitDetail} />;
-    }
     return (
       <div className="container">
         <div className="gallery-container w-2 h-2">
@@ -40,28 +56,28 @@ class GalleryMain extends React.Component {
         <div className="gallery-container">
           <div className="gallery-item">
             <div className="image">
-              <img src={this.props.photos.room_photos[1].imageUrl} />
+              <img onClick={this.photoClickHandlerB} src={this.props.photos.room_photos[1].imageUrl} />
             </div>
           </div>
         </div>
         <div className="gallery-container">
           <div className="gallery-item">
             <div className="image">
-              <img src={this.props.photos.room_photos[2].imageUrl} />
+              <img onClick={this.photoClickHandlerC} src={this.props.photos.room_photos[2].imageUrl} />
             </div>
           </div>
         </div>
         <div className="gallery-container">
           <div className="gallery-item">
             <div className="image">
-              <img src={this.props.photos.room_photos[3].imageUrl} />
+              <img onClick={this.photoClickHandlerD} src={this.props.photos.room_photos[3].imageUrl} />
             </div>
           </div>
         </div>
         <div className="gallery-container">
           <div className="gallery-item">
             <div className="image">
-              <img src={this.props.photos.room_photos[4].imageUrl} />
+              <img onClick={this.photoClickHandlerE} src={this.props.photos.room_photos[4].imageUrl} />
             <button className="showAllBtn" onClick={this.onClickHandler}>
               Show all photos
             </button>
