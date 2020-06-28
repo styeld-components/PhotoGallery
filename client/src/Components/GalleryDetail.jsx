@@ -1,12 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable max-len */
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable import/extensions */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/button-has-type */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/prop-types */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import SVG from 'react-inlinesvg';
 import SavePopup from './SavePopup.jsx';
@@ -34,23 +32,28 @@ class GalleryDetail extends React.Component {
   }
 
   shareClickHandler() {
-    this.props.sharePopupHandler();
+    const { sharePopupHandler } = this.props;
+    sharePopupHandler();
   }
 
   saveClickHandler() {
-    this.setState({ showSavePopup: !this.state.showSavePopup });
+    const { showSavePopup } = this.state;
+    this.setState({ showSavePopup: !showSavePopup });
   }
 
   closeClickHandler() {
-    this.props.onExitDetail();
+    const { onExitDetail } = this.props;
+    onExitDetail();
   }
 
   nextClickHandler() {
-    this.setState({ currPhotoIdx: this.state.currPhotoIdx + 1, fadeLoaded: !this.state.fadeLoaded });
+    const { currPhotoIdx, fadeLoaded } = this.state;
+    this.setState({ currPhotoIdx: currPhotoIdx + 1, fadeLoaded: !fadeLoaded });
   }
 
   prevClickHandler() {
-    this.setState({ currPhotoIdx: this.state.currPhotoIdx - 1, fadeLoaded: !this.state.fadeLoaded });
+    const { currPhotoIdx, fadeLoaded } = this.state;
+    this.setState({ currPhotoIdx: currPhotoIdx - 1, fadeLoaded: !fadeLoaded });
   }
 
   backToGalleryDetail() {
@@ -60,49 +63,51 @@ class GalleryDetail extends React.Component {
   }
 
   render() {
+    const { currPhotoIdx, showSavePopup, fadeLoaded } = this.state;
+    const { photos } = this.props;
     let prevBtn;
     let nextBtn;
-    if (this.state.currPhotoIdx === 0) {
+    if (currPhotoIdx === 0) {
       prevBtn = null;
     } else {
-      prevBtn = <button className="prevBtn" onClick={this.prevClickHandler}><SVG src={Prev} className="svg-prev" /></button>;
+      prevBtn = <button className="prevBtn" type="submit" onClick={this.prevClickHandler}><SVG src={Prev} className="svg-prev" /></button>;
     }
 
-    if (this.state.currPhotoIdx === this.props.photos.room_photos.length - 1) {
+    if (currPhotoIdx === photos.room_photos.length - 1) {
       nextBtn = null;
     } else {
-      nextBtn = <button className="nextBtn" onClick={this.nextClickHandler}><SVG src={Next} /></button>;
+      nextBtn = <button className="nextBtn" type="submit" onClick={this.nextClickHandler}><SVG src={Next} /></button>;
     }
 
     let popUp;
-    if (this.state.showSavePopup) {
+    if (showSavePopup) {
       popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
     } else {
       popUp = null;
     }
 
-    const fadeClasses = this.state.fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
+    const fadeClasses = fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
 
     return (
       <div className="galleryDetail-container">
         <div className="detail-top-row">
-          <button className="closeBtn" onClick={this.closeClickHandler}>
+          <button className="closeBtn" type="submit" onClick={this.closeClickHandler}>
             <SVG src={Close} />
             Close
           </button>
           <span className="idxInfo">
-            {this.state.currPhotoIdx + 1}
+            {currPhotoIdx + 1}
             {' / '}
-            {this.props.photos.room_photos.length}
+            {photos.room_photos.length}
           </span>
-          <button className="saveListBtn" onClick={this.saveClickHandler}><SVG src={Save} /></button>
-          <button className="shareBtn" onClick={this.shareClickHandler}><SVG src={Share} /></button>
+          <button className="saveListBtn" type="submit" onClick={this.saveClickHandler}><SVG src={Save} /></button>
+          <button className="shareBtn" type="submit" onClick={this.shareClickHandler}><SVG src={Share} /></button>
         </div>
         <div className="detail-bottom-wrapper">
           <div className="prevBtn-wrapper">
             {prevBtn}
           </div>
-          <img className={fadeClasses} src={this.props.photos.room_photos[this.state.currPhotoIdx].imageUrl} />
+          <img className={fadeClasses} src={photos.room_photos[currPhotoIdx].imageUrl} />
           <div className="nextBtn-wrapper">
             {nextBtn}
           </div>

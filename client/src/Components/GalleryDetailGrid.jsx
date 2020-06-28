@@ -1,6 +1,12 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import GalleryDetailGridItem from './GalleryDetailGridItem.jsx';
 import SVG from 'react-inlinesvg';
+import GalleryDetailGridItem from './GalleryDetailGridItem.jsx';
 import Prev from './airbnb-prev-detail.svg';
 import '../styles/GalleryDetailGrid.css';
 
@@ -13,18 +19,19 @@ class GalleryDetailGrid extends React.Component {
   }
 
   onPrevClick() {
-    this.props.onExitDetail();
+    const { onExitDetail } = this.props;
+    onExitDetail();
   }
 
   render() {
-    console.log(this.props.photos)
+    const { photos, getClickedPhotoIdxfromGrid } = this.props;
     return (
       <div>
         <div>
-          <button className="gallerydetailgrid-back-btn" onClick={this.onPrevClick}><SVG src={Prev} /></button>
+          <button className="gallerydetailgrid-back-btn" type="submit" onClick={this.onPrevClick}><SVG src={Prev} /></button>
         </div>
         <div className="gallerydetailgrid-container">
-          {this.props.photos.room_photos.map((item, index) => <GalleryDetailGridItem photo={item} key={index} photoIdx={index} getClickedPhotoIdxfromGrid={this.props.getClickedPhotoIdxfromGrid} />)}
+          {photos.room_photos.map((item, index) => <GalleryDetailGridItem photo={item} key={index} photoIdx={index} getClickedPhotoIdxfromGrid={getClickedPhotoIdxfromGrid} />)}
         </div>
       </div>
     );

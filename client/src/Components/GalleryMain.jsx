@@ -1,9 +1,10 @@
-/* eslint-disable react/button-has-type */
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import GalleryDetail from './GalleryDetail.jsx';
 import '../styles/GalleryMain.css';
 
 class GalleryMain extends React.Component {
@@ -78,9 +79,9 @@ class GalleryMain extends React.Component {
           <div className="gallery-item">
             <div className="image">
               <img onClick={this.photoClickHandlerE} src={this.props.photos.room_photos[4].imageUrl} />
-            <button className="showAllBtn" onClick={this.onClickHandler}>
-              Show all photos
-            </button>
+              <button className="showAllBtn" type="submit" onClick={this.onClickHandler}>
+                Show all photos
+              </button>
             </div>
           </div>
         </div>

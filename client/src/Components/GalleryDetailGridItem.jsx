@@ -1,3 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import '../styles/GalleryDetailGridItem.css';
 
@@ -10,15 +14,17 @@ class GalleryDetailGridItem extends React.Component {
   }
 
   imageClickHandler() {
-    this.props.getClickedPhotoIdxfromGrid(this.props.photoIdx);
+    const { getClickedPhotoIdxfromGrid, photoIdx } = this.props;
+    getClickedPhotoIdxfromGrid(photoIdx);
   }
 
   render() {
+    const { photo } = this.props;
     return (
       <div className="gallerydetailgrid-sub-container">
         <div className="gallerydetailgrid-item">
           <div className="gallerydetailgrid-image">
-            <img onClick={this.imageClickHandler} src={this.props.photo.imageUrl} />
+            <img onClick={this.imageClickHandler} src={photo.imageUrl} />
           </div>
         </div>
       </div>

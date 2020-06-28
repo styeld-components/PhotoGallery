@@ -1,13 +1,9 @@
-/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable max-len */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-console */
 /* eslint-disable import/extensions */
-/* eslint-disable no-else-return */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import $ from 'jquery';
 import GalleryMain from './GalleryMain.jsx';
@@ -83,8 +79,9 @@ class App extends React.Component {
   }
 
   sharePopupHandler() {
+    const { showSharePopup } = this.state;
     this.setState({
-      showSharePopup: !this.state.showSharePopup,
+      showSharePopup: !showSharePopup,
     });
   }
 
@@ -105,38 +102,36 @@ class App extends React.Component {
   }
 
   renderView() {
-    const { view } = this.state;
+    const { photos, view, clickedPhotoIdx } = this.state;
     const mainPhoto = [];
-    const list = this.state.photos;
+    const list = photos;
     const mql = window.matchMedia('(max-width: 1100px)');
     if (list.length !== 0) {
       for (let i = 0; i < 5; i += 1) {
         mainPhoto.push(list[0].room_photos[i]);
       }
-      if (this.state.clickedPhotoIdx >= 0) {
-        return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={this.state.clickedPhotoIdx} />;
-      } else if (view === 'main') {
-        return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
-      } else if (view === 'showAll') {
+      if (clickedPhotoIdx >= 0) {
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} />;
+      } if (view === 'main') {
+        return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
+      } if (view === 'showAll') {
         if (mql.matches) {
-          return <GalleryDetailGrid photos={this.state.photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
-        } else {
-          return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
+          return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
         }
-      } else {
-        return null;
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
       }
     }
     return null;
   }
 
   render() {
-    const sharePopupBackground = this.state.showSharePopup ? 'showShareBackground' : 'noShareBackground';
+    const { showSharePopup } = this.state;
+    const sharePopupBackground = showSharePopup ? 'showShareBackground' : 'noShareBackground';
     return (
       <div>
         {this.renderView()}
         <div className={sharePopupBackground} onClick={this.onClickDetailHandler}></div>
-        {this.state.showSharePopup ? <SharePopupInner backToGalleryDetail={this.backToGalleryDetail} /> : null}
+        {showSharePopup ? <SharePopupInner backToGalleryDetail={this.backToGalleryDetail} /> : null}
       </div>
     );
   }

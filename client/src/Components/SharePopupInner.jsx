@@ -27,7 +27,6 @@ class SharePopup extends React.Component {
   }
 
   onCloseHandler() {
-    console.log('close clicked');
     this.props.backToGalleryDetail();
   }
 
