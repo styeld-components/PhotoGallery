@@ -33,6 +33,7 @@ class App extends React.Component {
     this.backToGalleryDetail = this.backToGalleryDetail.bind(this);
     this.onClickDetailHandler = this.onClickDetailHandler.bind(this);
     this.getClickedPhotoIdx = this.getClickedPhotoIdx.bind(this);
+    this.getClickedPhotoIdxfromGrid = this.getClickedPhotoIdxfromGrid.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +55,6 @@ class App extends React.Component {
   }
 
   onExitDetail() {
-    console.log('app close');
     this.setState({
       view: 'main',
       clickedPhotoIdx: -1,
@@ -68,6 +68,10 @@ class App extends React.Component {
   }
 
   getClickedPhotoIdx(index) {
+    this.setState({ clickedPhotoIdx: index });
+  }
+
+  getClickedPhotoIdxfromGrid(index) {
     this.setState({ clickedPhotoIdx: index });
   }
 
@@ -112,11 +116,10 @@ class App extends React.Component {
       if (this.state.clickedPhotoIdx >= 0) {
         return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={this.state.clickedPhotoIdx} />;
       } else if (view === 'main') {
-        console.log('main?')
         return <GalleryMain photos={this.state.photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
       } else if (view === 'showAll') {
         if (mql.matches) {
-          return <GalleryDetailGrid photos={this.state.photos[0]} onExitDetail={this.onExitDetail} />;
+          return <GalleryDetailGrid photos={this.state.photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
         } else {
           return <GalleryDetail photos={this.state.photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
         }

@@ -24,7 +24,7 @@ class GalleryDetailGrid extends React.Component {
           <button className="gallerydetailgrid-back-btn" onClick={this.onPrevClick}><SVG src={Prev} /></button>
         </div>
         <div className="gallerydetailgrid-container">
-          {this.props.photos.room_photos.map((item, index) => <GalleryDetailGridItem photo={item} key={index} />)}
+          {this.props.photos.room_photos.map((item, index) => <GalleryDetailGridItem photo={item} key={index} photoIdx={index} getClickedPhotoIdxfromGrid={this.props.getClickedPhotoIdxfromGrid} />)}
         </div>
       </div>
     );
