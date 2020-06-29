@@ -36,6 +36,7 @@ class App extends React.Component {
     this.getClickedPhotoIdxfromGrid = this.getClickedPhotoIdxfromGrid.bind(this);
     this.changeViewOnWindowSize = this.changeViewOnWindowSize.bind(this);
     this.changeMainViewOnWindowSize = this.changeMainViewOnWindowSize.bind(this);
+    this.showDetailGrid = this.showDetailGrid.bind(this);
   }
 
   componentDidMount() {
@@ -95,6 +96,10 @@ class App extends React.Component {
     }
   }
 
+  showDetailGrid() {
+    this.setState({ view: 'showAll', detailView: 'grid' });
+  }
+
   backToGalleryDetail() {
     this.setState({
       showSharePopup: false,
@@ -128,7 +133,7 @@ class App extends React.Component {
 
   renderView() {
     const {
-      photos, view, clickedPhotoIdx, detailView, mainView
+      photos, view, clickedPhotoIdx, detailView, mainView,
     } = this.state;
     const mainPhoto = [];
     const list = photos;
@@ -143,7 +148,7 @@ class App extends React.Component {
         if (mainView === 'main') {
           return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
         } else {
-          return <GalleryMainGrid photos={photos[0]} />;
+          return <GalleryMainGrid photos={photos[0]} showDetailGrid={this.showDetailGrid} />;
         }
       } if (view === 'showAll') {
         if (detailView === 'grid') {
