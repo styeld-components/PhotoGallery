@@ -20,6 +20,7 @@ class SavePopup extends React.Component {
     this.onCloseHandler = this.onCloseHandler.bind(this);
     this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
     this.onClickDetailHandler = this.onClickDetailHandler.bind(this);
+    this.createListHandler = this.createListHandler.bind(this);
   }
 
   onCloseHandler() {
@@ -38,6 +39,13 @@ class SavePopup extends React.Component {
   onClickDetailHandler() {
     const { backToGalleryDetail } = this.props;
     backToGalleryDetail();
+  }
+
+  createListHandler() {
+    const { listName } = this.state;
+    const { saveToList } = this.props;
+    saveToList(listName);
+    this.setState({ listName: '' });
   }
 
   render() {
@@ -61,7 +69,7 @@ class SavePopup extends React.Component {
             <input className="saveToList-input" name="name" placeholder="Ex: Summer vacation" type="text" value={listName} onChange={this.onInputChangeHandler} />
           </div>
           <div className="saveToList-btn-wrapper">
-            <button className={cursorClasses} type="submit">
+            <button className={cursorClasses} type="submit" onClick={this.createListHandler}>
               Create
             </button>
             <button className="saveToList-cancel-btn" type="submit" onClick={this.onCloseHandler}>

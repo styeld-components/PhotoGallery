@@ -48,6 +48,7 @@ class GalleryDetail extends React.Component {
 
   nextClickHandler() {
     const { currPhotoIdx, fadeLoaded } = this.state;
+    this.props.getCurrPhotoIdx(currPhotoIdx);
     this.setState({ currPhotoIdx: currPhotoIdx + 1, fadeLoaded: !fadeLoaded });
   }
 
@@ -64,7 +65,7 @@ class GalleryDetail extends React.Component {
 
   render() {
     const { currPhotoIdx, showSavePopup, fadeLoaded } = this.state;
-    const { photos } = this.props;
+    const { photos, saveToList } = this.props;
     let prevBtn;
     let nextBtn;
     if (currPhotoIdx === 0) {
@@ -81,7 +82,7 @@ class GalleryDetail extends React.Component {
 
     let popUp;
     if (showSavePopup) {
-      popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} />;
+      popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} saveToList={saveToList} />;
     } else {
       popUp = null;
     }

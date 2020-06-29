@@ -20,6 +20,7 @@ class App extends React.Component {
       view: 'main',
       showSharePopup: false,
       clickedPhotoIdx: -1,
+      detailView: 'non-grid',
     };
     this.renderView = this.renderView.bind(this);
     this.onShowAll = this.onShowAll.bind(this);
@@ -30,9 +31,11 @@ class App extends React.Component {
     this.onClickDetailHandler = this.onClickDetailHandler.bind(this);
     this.getClickedPhotoIdx = this.getClickedPhotoIdx.bind(this);
     this.getClickedPhotoIdxfromGrid = this.getClickedPhotoIdxfromGrid.bind(this);
+    this.changeViewOnWindowSize = this.changeViewOnWindowSize.bind(this);
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.changeViewOnWindowSize);
     $.ajax({
       method: 'GET',
       url: '/api/0/photogallery',
@@ -71,6 +74,14 @@ class App extends React.Component {
     this.setState({ clickedPhotoIdx: index });
   }
 
+  changeViewOnWindowSize() {
+    if (window.innerWidth > 1000) {
+      this.setState({ detailView: 'non-grid' });
+    } else {
+      this.setState({ detailView: 'grid' });
+    }
+  }
+
   backToGalleryDetail() {
     this.setState({
       showSharePopup: false,
@@ -89,9 +100,10 @@ class App extends React.Component {
     $.ajax({
       method: 'POST',
       url: '/api/0/photogallery',
-      data: {
-        name,
-      },
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({
+        listname: name,
+      }),
       success: () => {
         console.log('successfully save to a list ajax');
       },
@@ -102,23 +114,25 @@ class App extends React.Component {
   }
 
   renderView() {
-    const { photos, view, clickedPhotoIdx } = this.state;
+    const {
+      photos, view, clickedPhotoIdx, detailView,
+    } = this.state;
     const mainPhoto = [];
     const list = photos;
-    const mql = window.matchMedia('(max-width: 1100px)');
+
     if (list.length !== 0) {
       for (let i = 0; i < 5; i += 1) {
         mainPhoto.push(list[0].room_photos[i]);
       }
       if (clickedPhotoIdx >= 0) {
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} />;
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} />;
       } if (view === 'main') {
         return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
       } if (view === 'showAll') {
-        if (mql.matches) {
+        if (detailView === 'grid') {
           return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
         }
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} />;
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} />;
       }
     }
     return null;
