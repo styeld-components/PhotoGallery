@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
@@ -24,10 +26,14 @@ class GalleryMainGrid extends React.Component {
   }
 
   render() {
-    const { photos } = this.props;
+    const { photos, numPhotos } = this.props;
     return (
-      <div>
+      <div className="gallery-main-grid-container">
         <img className="gallery-main-grid-image" onClick={this.imageClickHandler} src={photos.room_photos[0].imageUrl} />
+        <div className="grid-info-background"></div>
+        <span className="gallery-main-grid-info">
+          1 / {numPhotos}
+        </span>
       </div>
     );
   }

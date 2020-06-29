@@ -148,7 +148,7 @@ class App extends React.Component {
         if (mainView === 'main') {
           return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
         } else {
-          return <GalleryMainGrid photos={photos[0]} showDetailGrid={this.showDetailGrid} />;
+          return <GalleryMainGrid photos={photos[0]} showDetailGrid={this.showDetailGrid} numPhotos={photos[0].room_photos.length} />;
         }
       } if (view === 'showAll') {
         if (detailView === 'grid') {
