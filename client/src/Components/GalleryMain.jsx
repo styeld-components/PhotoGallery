@@ -81,9 +81,9 @@ class GalleryMain extends React.Component {
               <img onClick={this.photoClickHandlerE} src={this.props.photos.room_photos[4].imageUrl} />
             </div>
           </div>
-              <button className="showAllBtn" type="submit" onClick={this.onClickHandler}>
-                Show all photos
-              </button>
+          <button className="showAllBtn" type="submit" onClick={this.onClickHandler}>
+            Show all photos
+          </button>
         </div>
       </div>
     );

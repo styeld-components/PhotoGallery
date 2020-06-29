@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -10,6 +11,7 @@ import GalleryMain from './GalleryMain.jsx';
 import GalleryDetail from './GalleryDetail.jsx';
 import SharePopupInner from './SharePopupInner.jsx';
 import GalleryDetailGrid from './GalleryDetailGrid.jsx';
+import GalleryMainGrid from './GalleryMainGrid.jsx';
 import '../styles/App.css';
 
 class App extends React.Component {
@@ -21,6 +23,7 @@ class App extends React.Component {
       showSharePopup: false,
       clickedPhotoIdx: -1,
       detailView: 'non-grid',
+      mainView: 'main',
     };
     this.renderView = this.renderView.bind(this);
     this.onShowAll = this.onShowAll.bind(this);
@@ -32,10 +35,12 @@ class App extends React.Component {
     this.getClickedPhotoIdx = this.getClickedPhotoIdx.bind(this);
     this.getClickedPhotoIdxfromGrid = this.getClickedPhotoIdxfromGrid.bind(this);
     this.changeViewOnWindowSize = this.changeViewOnWindowSize.bind(this);
+    this.changeMainViewOnWindowSize = this.changeMainViewOnWindowSize.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('resize', this.changeViewOnWindowSize);
+    window.addEventListener('resize', this.changeMainViewOnWindowSize);
     $.ajax({
       method: 'GET',
       url: '/api/0/photogallery',
@@ -82,6 +87,14 @@ class App extends React.Component {
     }
   }
 
+  changeMainViewOnWindowSize() {
+    if (window.innerWidth > 750) {
+      this.setState({ mainView: 'main' });
+    } else {
+      this.setState({ mainView: 'main-grid' });
+    }
+  }
+
   backToGalleryDetail() {
     this.setState({
       showSharePopup: false,
@@ -115,7 +128,7 @@ class App extends React.Component {
 
   renderView() {
     const {
-      photos, view, clickedPhotoIdx, detailView,
+      photos, view, clickedPhotoIdx, detailView, mainView
     } = this.state;
     const mainPhoto = [];
     const list = photos;
@@ -127,7 +140,11 @@ class App extends React.Component {
       if (clickedPhotoIdx >= 0) {
         return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} />;
       } if (view === 'main') {
-        return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
+        if (mainView === 'main') {
+          return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
+        } else {
+          return <GalleryMainGrid photos={photos[0]} />;
+        }
       } if (view === 'showAll') {
         if (detailView === 'grid') {
           return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
