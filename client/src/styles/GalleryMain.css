@@ -44,6 +44,10 @@
   border-bottom-right-radius: 10px;
 }
 
+.container .gallery-container {
+  position: relative
+}
+
 .showAllBtn {
   position: absolute;
   right: 20px;
