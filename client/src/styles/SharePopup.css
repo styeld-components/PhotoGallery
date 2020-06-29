@@ -21,7 +21,7 @@
   display: block;
 }
 
-tr {
+.shareRow {
   display: block;
   width: 285px;
   margin-left: 25px;

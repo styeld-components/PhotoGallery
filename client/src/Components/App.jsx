@@ -47,7 +47,6 @@ class App extends React.Component {
       method: 'GET',
       url: '/api/0/photogallery',
       success: (data) => {
-        console.log(data);
         this.setState({ photos: data });
       },
       error: (err) => {
