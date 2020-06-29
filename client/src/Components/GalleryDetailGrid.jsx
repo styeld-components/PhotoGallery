@@ -8,7 +8,7 @@ import React from 'react';
 import SVG from 'react-inlinesvg';
 import GalleryDetailGridItem from './GalleryDetailGridItem.jsx';
 import Prev from './airbnb-prev-detail.svg';
-import '../styles/GalleryDetailGrid.css';
+import styles from '../styles/GalleryDetailGrid.css';
 
 class GalleryDetailGrid extends React.Component {
   constructor(props) {
@@ -28,9 +28,9 @@ class GalleryDetailGrid extends React.Component {
     return (
       <div>
         <div>
-          <button className="gallerydetailgrid-back-btn" type="submit" onClick={this.onPrevClick}><SVG src={Prev} /></button>
+          <button className={styles.gallerydetailgridBackBtn} type="submit" onClick={this.onPrevClick}><SVG src={Prev} /></button>
         </div>
-        <div className="gallerydetailgrid-container">
+        <div className={styles.gallerydetailgridContainer}>
           {photos.room_photos.map((item, index) => <GalleryDetailGridItem photo={item} key={index} photoIdx={index} getClickedPhotoIdxfromGrid={getClickedPhotoIdxfromGrid} />)}
         </div>
       </div>

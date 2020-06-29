@@ -8,7 +8,7 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
 import CloseForm from './airbnb-close-form.svg';
-import '../styles/SavePopup.css';
+import styles from '../styles/SavePopup.css';
 
 class SavePopup extends React.Component {
   constructor(props) {
@@ -50,29 +50,29 @@ class SavePopup extends React.Component {
 
   render() {
     const { createValid, listName } = this.state;
-    const cursorClasses = createValid ? 'saveToList-create-btn allowed-cursor' : 'saveToList-create-btn not-allowed-cursor';
+    const cursorClasses = createValid ? `${styles.saveToListCreateBtn} ${styles.allowedCursor}` : `${styles.saveToListCreateBtn} ${styles.notAllowedCursor}`;
 
     return (
-      <div className="save-popup">
-        <div className="save-popup-outter" onClick={this.onClickDetailHandler}></div>
-        <div className="save-popup-inner">
-          <div className="close-form-btn-wrapper">
-            <button className="close-form-btn" type="submit" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
+      <div className={styles.savePopup}>
+        <div className={styles.savePopupOutter} onClick={this.onClickDetailHandler}></div>
+        <div className={styles.savePopupInner}>
+          <div className={styles.closeFormBtnWrapper}>
+            <button className={styles.closeFormBtn} type="submit" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
           </div>
-          <div className="saveToList-stl">
+          <div className={styles.saveToListStl}>
             Save to a list
           </div>
-          <div className="saveToList-name">
+          <div className={styles.saveToListName}>
             Name
           </div>
-          <div className="saveToList-input-wrapper">
-            <input className="saveToList-input" name="name" placeholder="Ex: Summer vacation" type="text" value={listName} onChange={this.onInputChangeHandler} />
+          <div className={styles.saveToListInputWrapper}>
+            <input className={styles.saveToListInput} name="name" placeholder="Ex: Summer vacation" type="text" value={listName} onChange={this.onInputChangeHandler} />
           </div>
-          <div className="saveToList-btn-wrapper">
+          <div className={styles.saveToListBtnWrapper}>
             <button className={cursorClasses} type="submit" onClick={this.createListHandler}>
               Create
             </button>
-            <button className="saveToList-cancel-btn" type="submit" onClick={this.onCloseHandler}>
+            <button className={styles.saveToListCancelBtn} type="submit" onClick={this.onCloseHandler}>
               Cancel
             </button>
           </div>

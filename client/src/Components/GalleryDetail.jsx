@@ -13,7 +13,7 @@ import Save from './airbnb-save.svg';
 import Share from './airbnb-share.svg';
 import Next from './airbnb-next.svg';
 import Prev from './airbnb-prev.svg';
-import '../styles/GalleryDetail.css';
+import styles from '../styles/GalleryDetail.css';
 
 class GalleryDetail extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class GalleryDetail extends React.Component {
 
   nextClickHandler() {
     const { currPhotoIdx, fadeLoaded } = this.state;
-    this.props.getCurrPhotoIdx(currPhotoIdx);
+    // this.props.getCurrPhotoIdx(currPhotoIdx);
     this.setState({ currPhotoIdx: currPhotoIdx + 1, fadeLoaded: !fadeLoaded });
   }
 
@@ -71,13 +71,13 @@ class GalleryDetail extends React.Component {
     if (currPhotoIdx === 0) {
       prevBtn = null;
     } else {
-      prevBtn = <button className="prevBtn" type="submit" onClick={this.prevClickHandler}><SVG src={Prev} className="svg-prev" /></button>;
+      prevBtn = <button className={styles.prevBtn} type="submit" onClick={this.prevClickHandler}><SVG src={Prev} className="svg-prev" /></button>;
     }
 
     if (currPhotoIdx === photos.room_photos.length - 1) {
       nextBtn = null;
     } else {
-      nextBtn = <button className="nextBtn" type="submit" onClick={this.nextClickHandler}><SVG src={Next} /></button>;
+      nextBtn = <button className={styles.nextBtn} type="submit" onClick={this.nextClickHandler}><SVG src={Next} /></button>;
     }
 
     let popUp;
@@ -87,29 +87,29 @@ class GalleryDetail extends React.Component {
       popUp = null;
     }
 
-    const fadeClasses = fadeLoaded ? 'detailImg loaded1' : 'detailImg loaded2';
+    const fadeClasses = fadeLoaded ? `${styles.detailImg} ${styles.loaded1}` : `${styles.detailImg} ${styles.loaded2}`;
 
     return (
-      <div className="galleryDetail-container">
-        <div className="detail-top-row">
-          <button className="closeBtn" type="submit" onClick={this.closeClickHandler}>
+      <div className={styles.galleryDetailContainer}>
+        <div className={styles.detailTopRow}>
+          <button className={styles.closeBtn} type="submit" onClick={this.closeClickHandler}>
             <SVG src={Close} />
             Close
           </button>
-          <span className="idxInfo">
+          <span className={styles.idxInfo}>
             {currPhotoIdx + 1}
             {' / '}
             {photos.room_photos.length}
           </span>
-          <button className="saveListBtn" type="submit" onClick={this.saveClickHandler}><SVG src={Save} /></button>
-          <button className="shareBtn" type="submit" onClick={this.shareClickHandler}><SVG src={Share} /></button>
+          <button className={styles.saveListBtn} type="submit" onClick={this.saveClickHandler}><SVG src={Save} /></button>
+          <button className={styles.shareBtn} type="submit" onClick={this.shareClickHandler}><SVG src={Share} /></button>
         </div>
-        <div className="detail-bottom-wrapper">
-          <div className="prevBtn-wrapper">
+        <div className={styles.detailBottomWrapper}>
+          <div className={styles.prevBtnWrapper}>
             {prevBtn}
           </div>
           <img className={fadeClasses} src={photos.room_photos[currPhotoIdx].imageUrl} />
-          <div className="nextBtn-wrapper">
+          <div className={styles.nextBtnWrapper}>
             {nextBtn}
           </div>
         </div>

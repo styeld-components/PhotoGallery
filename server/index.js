@@ -1,6 +1,6 @@
+/* eslint-disable import/newline-after-import */
 /* eslint-disable no-console */
 const express = require('express');
-
 const app = express();
 const port = 3004;
 const bodyParser = require('body-parser');

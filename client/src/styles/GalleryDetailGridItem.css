@@ -1,18 +1,26 @@
-.gallerydetailgrid-item {
+.gallerydetailgridItem {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.gallerydetailgrid-item .gallerydetailgrid-image {
+.gallerydetailgridItem .gallerydetailgridImage {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.gallerydetailgrid-item .gallerydetailgrid-image img {
+.gallerydetailgridItem .gallerydetailgridImage img {
   width: 100%;
   height: 100%;
   display:block;
   object-fit: cover;
+}
+
+.gallerydetailgridSubContainer:nth-child(1) {
+  grid-column: span 2;
+}
+
+.gallerydetailgridSubContainer:nth-child(3n + 1) {
+  grid-column: span 2;
 }

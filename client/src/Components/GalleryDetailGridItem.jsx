@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-import '../styles/GalleryDetailGridItem.css';
+import styles from '../styles/GalleryDetailGridItem.css';
 
 class GalleryDetailGridItem extends React.Component {
   constructor(props) {
@@ -21,9 +21,9 @@ class GalleryDetailGridItem extends React.Component {
   render() {
     const { photo } = this.props;
     return (
-      <div className="gallerydetailgrid-sub-container">
-        <div className="gallerydetailgrid-item">
-          <div className="gallerydetailgrid-image">
+      <div className={styles.gallerydetailgridSubContainer}>
+        <div className={styles.gallerydetailgridItem}>
+          <div className={styles.gallerydetailgridImage}>
             <img onClick={this.imageClickHandler} src={photo.imageUrl} />
           </div>
         </div>

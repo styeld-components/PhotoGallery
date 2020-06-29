@@ -1,4 +1,4 @@
-.save-popup-outter {
+.savePopupOutter {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -11,7 +11,7 @@
   z-index: 3;
 }
 
-.save-popup-inner {
+.savePopupInner {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -25,19 +25,19 @@
   z-index: 4;
 }
 
-.close-form-btn {
+.closeFormBtn {
   background-color: #ffffff;
   margin: 0px 0px 24px;
   border: none;
   cursor: pointer;
 }
 
-.close-form-btn-wrapper {
+.closeFormBtnWrapper {
   margin-top: 26px;
   margin-left: 26px;
 }
 
-.saveToList-stl {
+.saveToListStl {
   font-family: 'Montserrat', sans-serif;
   font-weight: 550;
   font-size: 24px;
@@ -45,7 +45,7 @@
   margin-left: 30px;
 }
 
-.saveToList-name {
+.saveToListName {
   font-family: 'Montserrat', sans-serif;
   font-weight: 450;
   font-size: 15px;
@@ -55,12 +55,12 @@
   cursor: pointer;
 }
 
-.saveToList-input-wrapper {
+.saveToListInputWrapper {
   margin-top: 10px;
   margin-left: 30px;
 }
 
-.saveToList-input {
+.saveToListInput {
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   font-size: 15px;
@@ -72,13 +72,13 @@
   border: 1px solid rgb(235, 235, 235);
 }
 
-.saveToList-btn-wrapper {
+.saveToListBtnWrapper {
   margin-top: 15px;
   margin-right: 20px;
   margin-left: 20px;
 }
 
-.saveToList-cancel-btn {
+.saveToListCancelBtn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 550;
   font-size: 14px;
@@ -94,7 +94,7 @@
   cursor: pointer;
 }
 
-.saveToList-create-btn {
+.saveToListCreateBtn {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -107,22 +107,22 @@
   float: right;
 }
 
-.allowed-cursor {
+.allowedCursor {
   cursor: pointer;
 }
 
-.not-allowed-cursor {
+.notAllowedCursor {
   cursor: not-allowed;
 }
 
-.close-form-btn:focus {
+.closeFormBtn:focus {
   outline: 0;
 }
 
-.saveToList-cancel-btn:focus {
+.saveToListCancelBtn:focus {
   outline: 0;
 }
 
-.saveToList-create-btn:focus {
+.saveToListCreateBtn:focus {
   outline: 0;
 }

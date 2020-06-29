@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/self-closing-comp */
@@ -16,7 +17,7 @@ import Copylink from './airbnb-copylink.svg';
 import Whatsapp from './airbnb-whatsapp.svg';
 import Sms from './airbnb-sms.svg';
 import Embed from './airbnb-embed.svg';
-import '../styles/SharePopup.css';
+import styles from '../styles/SharePopup.css';
 
 class SharePopup extends React.Component {
   constructor(props) {
@@ -32,79 +33,79 @@ class SharePopup extends React.Component {
 
   render() {
     return (
-      <div className="share-popup-inner">
-        <div className="share-closeBtn-wrapper">
-          <button className="share-close-btn" onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
+      <div className={styles.sharePopupInner}>
+        <div className={styles.shareCloseBtnWrapper}>
+          <button className={styles.shareCloseBtn} onClick={this.onCloseHandler}><SVG src={CloseForm} /></button>
         </div>
-        <div className="share-content-container">
+        <div className={styles.shareContentContainer}>
           <table>
             <tbody>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <span className="share-span">Share</span>
+                  <span className={styles.shareSpan}>Share</span>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Facebook} />
-                    <span className="share-method-link">Facebook</span>
+                    <span className={styles.shareMethodLink}>Facebook</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Twitter} />
-                    <span className="share-method-link">Twitter</span>
+                    <span className={styles.shareMethodLink}>Twitter</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Messenger} />
-                    <span className="share-method-link">Messenger</span>
+                    <span className={styles.shareMethodLink}>Messenger</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Email} />
-                    <span className="share-method-link">Email</span>
+                    <span className={styles.shareMethodLink}>Email</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Copylink} />
-                    <span className="share-method-link">Copy Link</span>
+                    <span className={styles.shareMethodLink}>Copy Link</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Whatsapp} />
-                    <span className="share-method-link">WhatsApp</span>
+                    <span className={styles.shareMethodLink}>WhatsApp</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Sms} />
-                    <span className="share-method-link">SMS</span>
+                    <span className={styles.shareMethodLink}>SMS</span>
                   </button>
                 </td>
               </tr>
-              <tr className="share-row">
+              <tr className={styles.shareRow}>
                 <td>
-                  <button className="share-method-btn">
+                  <button className={styles.shareMethodBtn}>
                     <SVG src={Embed} />
-                    <span className="share-method-link">Embed</span>
+                    <span className={styles.shareMethodLink}>Embed</span>
                   </button>
                 </td>
               </tr>

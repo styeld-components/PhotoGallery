@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable no-else-return */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -12,7 +13,7 @@ import GalleryDetail from './GalleryDetail.jsx';
 import SharePopupInner from './SharePopupInner.jsx';
 import GalleryDetailGrid from './GalleryDetailGrid.jsx';
 import GalleryMainGrid from './GalleryMainGrid.jsx';
-import '../styles/App.css';
+import styles from '../styles/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -162,7 +163,7 @@ class App extends React.Component {
 
   render() {
     const { showSharePopup } = this.state;
-    const sharePopupBackground = showSharePopup ? 'showShareBackground' : 'noShareBackground';
+    const sharePopupBackground = showSharePopup ? styles.showShareBackground : styles.noShareBackground;
     return (
       <div>
         {this.renderView()}

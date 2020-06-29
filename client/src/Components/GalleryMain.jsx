@@ -5,7 +5,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import '../styles/GalleryMain.css';
+import styles from '../styles/GalleryMain.css';
 
 class GalleryMain extends React.Component {
   constructor(props) {
@@ -46,42 +46,42 @@ class GalleryMain extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="gallery-container w-2 h-2">
-          <div className="gallery-item">
-            <div className="image">
+      <div className={styles.container}>
+        <div className={`${styles.galleryContainer} ${styles.w2} ${styles.h2}`}>
+          <div className={styles.galleryItem}>
+            <div className={styles.image}>
               <img onClick={this.photoClickHandlerA} src={this.props.photos.room_photos[0].imageUrl} />
             </div>
           </div>
         </div>
-        <div className="gallery-container">
-          <div className="gallery-item">
-            <div className="image">
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryItem}>
+            <div className={styles.image}>
               <img onClick={this.photoClickHandlerB} src={this.props.photos.room_photos[1].imageUrl} />
             </div>
           </div>
         </div>
-        <div className="gallery-container">
-          <div className="gallery-item">
-            <div className="image">
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryItem}>
+            <div className={styles.image}>
               <img onClick={this.photoClickHandlerC} src={this.props.photos.room_photos[2].imageUrl} />
             </div>
           </div>
         </div>
-        <div className="gallery-container">
-          <div className="gallery-item">
-            <div className="image">
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryItem}>
+            <div className={styles.image}>
               <img onClick={this.photoClickHandlerD} src={this.props.photos.room_photos[3].imageUrl} />
             </div>
           </div>
         </div>
-        <div className="gallery-container">
-          <div className="gallery-item">
-            <div className="image">
+        <div className={styles.galleryContainer}>
+          <div className={styles.galleryItem}>
+            <div className={styles.image}>
               <img onClick={this.photoClickHandlerE} src={this.props.photos.room_photos[4].imageUrl} />
             </div>
           </div>
-          <button className="showAllBtn" type="submit" onClick={this.onClickHandler}>
+          <button className={styles.showAllBtn} type="submit" onClick={this.onClickHandler}>
             Show all photos
           </button>
         </div>

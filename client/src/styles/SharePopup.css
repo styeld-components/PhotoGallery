@@ -1,4 +1,4 @@
-.share-popup-inner {
+.sharePopupInner {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -12,12 +12,12 @@
   border-bottom: 50px solid rgba(0,0,0,0.75);
 }
 
-.share-content-container {
+.shareContentContainer {
   display: block;
   font-family: 'Montserrat', sans-serif;
 }
 
-.share-closeBtn-wrapper {
+.shareCloseBtnWrapper {
   display: block;
 }
 
@@ -30,13 +30,13 @@ tr {
   border-bottom: 1px solid rgb(235, 235, 235)
 }
 
-.share-span {
+.shareSpan {
   font-size: 22px;
   font-weight: 600;
   color: rgb(72, 72, 72)
 }
 
-.share-method-link {
+.shareMethodLink {
   position: relative;
   bottom: 3px;
   font-size: 15px;
@@ -44,23 +44,23 @@ tr {
   margin-left: 8px;
 }
 
-.share-close-btn {
+.shareCloseBtn {
   background-color: #ffffff;
   margin: 24px 24px 0px 24px;
   border: none;
 }
 
-.share-method-btn {
+.shareMethodBtn {
   background-color: #ffffff;
   padding: 0px;
   border: none;
   cursor: pointer;
 }
 
-.share-close-btn:focus {
+.shareCloseBtn:focus {
   outline: 0;
 }
 
-.share-method-btn:focus {
+.shareMethodBtn:focus {
   outline: 0;
 }
