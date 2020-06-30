@@ -8,6 +8,7 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
 import SavePopup from './SavePopup.jsx';
+import SavePopupList from './SavePopupList.jsx';
 import Close from './airbnb-close.svg';
 import Save from './airbnb-save.svg';
 import Share from './airbnb-share.svg';
@@ -48,7 +49,6 @@ class GalleryDetail extends React.Component {
 
   nextClickHandler() {
     const { currPhotoIdx, fadeLoaded } = this.state;
-    // this.props.getCurrPhotoIdx(currPhotoIdx);
     this.setState({ currPhotoIdx: currPhotoIdx + 1, fadeLoaded: !fadeLoaded });
   }
 
@@ -65,7 +65,7 @@ class GalleryDetail extends React.Component {
 
   render() {
     const { currPhotoIdx, showSavePopup, fadeLoaded } = this.state;
-    const { photos, saveToList } = this.props;
+    const { photos, saveToList, likeStatusUpdate } = this.props;
     let prevBtn;
     let nextBtn;
     if (currPhotoIdx === 0) {
@@ -82,7 +82,11 @@ class GalleryDetail extends React.Component {
 
     let popUp;
     if (showSavePopup) {
-      popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} saveToList={saveToList} />;
+      if (photos.save_status.length > 0) {
+        popUp = <SavePopupList closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} saveToList={saveToList} likeStatusUpdate={likeStatusUpdate} photos={photos} />;
+      } else {
+        popUp = <SavePopup closePopup={this.saveClickHandler} backToGalleryDetail={this.backToGalleryDetail} saveToList={saveToList} />;
+      }
     } else {
       popUp = null;
     }

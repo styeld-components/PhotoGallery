@@ -38,6 +38,7 @@ class App extends React.Component {
     this.changeViewOnWindowSize = this.changeViewOnWindowSize.bind(this);
     this.changeMainViewOnWindowSize = this.changeMainViewOnWindowSize.bind(this);
     this.showDetailGrid = this.showDetailGrid.bind(this);
+    this.likeStatusUpdate = this.likeStatusUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +46,7 @@ class App extends React.Component {
     window.addEventListener('resize', this.changeMainViewOnWindowSize);
     $.ajax({
       method: 'GET',
-      url: '/api/0/photogallery',
+      url: '/api/2/photogallery',
       success: (data) => {
         this.setState({ photos: data });
       },
@@ -114,19 +115,59 @@ class App extends React.Component {
     });
   }
 
-  saveToList(name) {
+  saveToList(listname, save) {
     $.ajax({
       method: 'POST',
-      url: '/api/0/photogallery',
+      url: '/api/2/photogallery',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
-        listname: name,
+        name: listname,
+        saved: save,
       }),
       success: () => {
         console.log('successfully save to a list ajax');
+        $.ajax({
+          method: 'GET',
+          url: '/api/2/photogallery',
+          success: (data) => {
+            this.setState({ photos: data });
+          },
+          error: (err) => {
+            console.log('err on ajax get: ', err);
+          },
+        });
       },
       error: (err) => {
         console.log('err on ajax save to list post: ', err);
+      },
+    });
+  }
+
+  likeStatusUpdate(listId, listname, likedStatus) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/2/photogallery',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({
+        id: listId,
+        name: listname,
+        saved: likedStatus,
+      }),
+      success: () => {
+        console.log('successfully updated save list ajax');
+        $.ajax({
+          method: 'GET',
+          url: '/api/2/photogallery',
+          success: (data) => {
+            this.setState({ photos: data });
+          },
+          error: (err) => {
+            console.log('err on ajax get: ', err);
+          },
+        });
+      },
+      error: (err) => {
+        console.log('err on ajax update save list: ', err);
       },
     });
   }
@@ -143,7 +184,7 @@ class App extends React.Component {
         mainPhoto.push(list[0].room_photos[i]);
       }
       if (clickedPhotoIdx >= 0) {
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} />;
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
       } if (view === 'main') {
         if (mainView === 'main') {
           return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
@@ -154,7 +195,7 @@ class App extends React.Component {
         if (detailView === 'grid') {
           return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
         }
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} />;
+        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
       }
     }
     return null;

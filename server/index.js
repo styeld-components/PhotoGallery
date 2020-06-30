@@ -17,4 +17,8 @@ app.post('/api/:roomId/photogallery', (req, res) => {
   Controllers.postSaveToList(req, res);
 });
 
+app.put('/api/:roomId/photogallery', (req, res) => {
+  Controllers.updateSaveToList(req, res);
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

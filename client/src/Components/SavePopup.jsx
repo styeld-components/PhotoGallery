@@ -44,7 +44,7 @@ class SavePopup extends React.Component {
   createListHandler() {
     const { listName } = this.state;
     const { saveToList } = this.props;
-    saveToList(listName);
+    saveToList(listName, true);
     this.setState({ listName: '' });
   }
 

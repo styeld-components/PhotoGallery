@@ -13,8 +13,8 @@ function getPhotos(req, res) {
 
 function postSaveToList(req, res) {
   const { roomId } = req.params;
-  const { listname } = req.body;
-  Models.postSaveToList(roomId, listname, (err, data) => {
+  const { name, saved } = req.body;
+  Models.postSaveToList(roomId, name, saved, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -23,4 +23,16 @@ function postSaveToList(req, res) {
   });
 }
 
-module.exports = { getPhotos, postSaveToList };
+function updateSaveToList(req, res) {
+  const { roomId } = req.params;
+  const { id, name, saved } = req.body;
+  Models.updateSaveToList(roomId, id, name, saved, (err, data) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+}
+
+module.exports = { getPhotos, postSaveToList, updateSaveToList };
