@@ -4,10 +4,11 @@ const express = require('express');
 const app = express();
 const port = 3004;
 const bodyParser = require('body-parser');
+const path = require('path');
 const Controllers = require('./Controllers.js');
 
 app.use(bodyParser.json());
-app.use(express.static('./client/dist'));
+app.use('/photogallery/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/:roomId/photogallery', (req, res) => {
   Controllers.getPhotos(req, res);
