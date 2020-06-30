@@ -129,6 +129,19 @@
   font-weight: 530;
 }
 
+.photoDescriptionContainer {
+  display: inline-block;
+  width: 100%;
+  margin-top: 23px;
+  text-align: center;
+}
+
+.photoDescription {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+}
+
 .closeBtn:focus {
   outline:0;
 }

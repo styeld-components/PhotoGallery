@@ -46,7 +46,7 @@ class App extends React.Component {
     window.addEventListener('resize', this.changeMainViewOnWindowSize);
     $.ajax({
       method: 'GET',
-      url: '/api/2/photogallery',
+      url: '/api/51/photogallery',
       success: (data) => {
         this.setState({ photos: data });
       },
