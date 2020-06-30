@@ -118,7 +118,7 @@ class App extends React.Component {
   saveToList(listname, save) {
     $.ajax({
       method: 'POST',
-      url: '/api/2/photogallery',
+      url: '/api/51/photogallery',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name: listname,
@@ -128,7 +128,7 @@ class App extends React.Component {
         console.log('successfully save to a list ajax');
         $.ajax({
           method: 'GET',
-          url: '/api/2/photogallery',
+          url: '/api/51/photogallery',
           success: (data) => {
             this.setState({ photos: data });
           },
@@ -146,7 +146,7 @@ class App extends React.Component {
   likeStatusUpdate(listId, listname, likedStatus) {
     $.ajax({
       method: 'PUT',
-      url: '/api/2/photogallery',
+      url: '/api/51/photogallery',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         id: listId,
@@ -157,7 +157,7 @@ class App extends React.Component {
         console.log('successfully updated save list ajax');
         $.ajax({
           method: 'GET',
-          url: '/api/2/photogallery',
+          url: '/api/51/photogallery',
           success: (data) => {
             this.setState({ photos: data });
           },
