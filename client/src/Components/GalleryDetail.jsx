@@ -117,9 +117,9 @@ class GalleryDetail extends React.Component {
             {nextBtn}
           </div>
         </div>
-          <div className={styles.photoDescriptionContainer}>
-            <span className={styles.photoDescription}>{photos.room_photos[currPhotoIdx].description}</span>
-          </div>
+        <div className={styles.photoDescriptionContainer}>
+          <span className={styles.photoDescription}>{photos.room_photos[currPhotoIdx].description}</span>
+        </div>
         {popUp}
       </div>
     );
