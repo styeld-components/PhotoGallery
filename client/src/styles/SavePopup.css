@@ -1,0 +1,128 @@
+.savePopupOutter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.95;
+  z-index: 3;
+}
+
+.savePopupInner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12%;
+  bottom: 12%;
+  width: 568px;
+  min-height: 400px;
+  margin: auto;
+  background-color: #ffffff;
+  opacity: 1 !important;
+  z-index: 4;
+}
+
+.closeFormBtn {
+  background-color: #ffffff;
+  margin: 0px 0px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.closeFormBtnWrapper {
+  margin-top: 26px;
+  margin-left: 26px;
+}
+
+.saveToListStl {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  font-size: 24px;
+  color: rgb(72, 72, 72);
+  margin-left: 30px;
+}
+
+.saveToListName {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 450;
+  font-size: 15px;
+  color: rgb(72, 72, 72);
+  margin-top: 30px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.saveToListInputWrapper {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.saveToListInput {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+  padding: 11px;
+  height: 22px;
+  width: 480px;
+  border-radius: 3px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.saveToListBtnWrapper {
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.saveToListCancelBtn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 550;
+  font-size: 14px;
+  color: #008489;
+  padding: 12px 22px;
+  margin-right: 8px;
+  border-color: #008489;
+  background-color: #ffffff;
+  border-width: 2px;
+  border-radius: 8px;
+  border-style: solid;
+  float: right;
+  cursor: pointer;
+}
+
+.saveToListCreateBtn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: rgba(0, 132, 137, 0.3);
+  padding: 14px 22px;
+  margin-right: 12px;
+  border-radius: 8px;
+  border-style: none;
+  float: right;
+}
+
+.allowedCursor {
+  cursor: pointer;
+}
+
+.notAllowedCursor {
+  cursor: not-allowed;
+}
+
+.closeFormBtn:focus {
+  outline: 0;
+}
+
+.saveToListCancelBtn:focus {
+  outline: 0;
+}
+
+.saveToListCreateBtn:focus {
+  outline: 0;
+}

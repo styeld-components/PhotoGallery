@@ -1,30 +1,163 @@
-.closeBtn {
-
+.galleryDetailContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
 }
 
-.gallery-container-detail .gallery-item-detail .image-detail img {
-  width: 50%;
-  height: 50%;
-  overflow: hidden;
-}
-
-.gallery-container-detail .gallery-item-detail .image-detail {
-  display: flex;
+.detailTopRow {
+  margin-top: 37px;
+  margin-bottom: 35px;
 }
 
 .detailImg {
   display: inline-block;
+  height: 68vh;
+  max-width: 55%;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  margin-top: 10px;
+  text-align: center;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.loaded1 {
+  animation: fadein1 0.3s;
+}
+
+.loaded2 {
+  animation: fadein2 0.3s;
+}
+
+@keyframes fadein1 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadein2 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .idxInfo {
-  display:table;
-  margin:0 auto;
+  display: inline;
+  position: absolute;
+  left: 49%;
+  margin-top: 6px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
 }
 
-.gallery-container-detail .gallery-item-detail .image-detail .nextBtn {
+.detailBottomWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.prevBtn {
+  float: left;
+  top: 50%;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  margin-left: 25px;
+  margin-bottom: 6px;
+  background-color: white;
+  border: 1px solid	#b2b2b2;
+}
+
+.prevBtn:hover {
+  background-color: #f7f7f7;
+}
+
+.nextBtn {
+  display: inline-block;
   float: right;
+  vertical-align: middle;
+  margin-right: 25px;
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  background-color: white;
+  border: 1px solid	#b2b2b2;
 }
 
+.nextBtn:hover {
+  background-color: #f7f7f7;
+}
+
+.shareBtn {
+  display: inline;
+  float: right;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  margin-right: 1px;
+  border-radius: 50%;
+}
+
+.shareBtn:hover {
+  background-color: #f7f7f7;
+}
+
+.saveListBtn {
+  display: inline;
+  float: right;
+  margin-right: 26px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.saveListBtn:hover {
+  background-color: #f7f7f7;
+}
+
+.closeBtn {
+  background: #e8e8e8;
+  margin-left: 27px;
+  padding: 9px 17px;
+  border-radius: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 530;
+}
+
+.photoDescriptionContainer {
+  display: inline-block;
+  width: 100%;
+  margin-top: 23px;
+  text-align: center;
+}
+
+.photoDescription {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.closeBtn:focus {
+  outline:0;
+}
+
+.saveListBtn:focus {
+  outline:0;
+}
+
+.shareBtn:focus {
+  outline:0;
+}
+
+.nextBtn:focus {
+  outline:0;
+}
+
+.prevBtn:focus {
+  outline:0;
+}

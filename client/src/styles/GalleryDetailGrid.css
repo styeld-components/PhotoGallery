@@ -1,0 +1,28 @@
+.gallerydetailgridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 5px;
+  margin-right: 150px;
+  margin-left: 150px;
+  margin-top: 25px;
+  min-width: 500px;
+}
+
+.gallerydetailgridBackBtn {
+  margin-top: 25px;
+  margin-left: 25px;
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.gallerydetailgridBackBtn:hover {
+  background-color: #f7f7f7;
+}
+
+.gallerydetailgridBackBtn:focus {
+  outline:0;
+}
