@@ -27,6 +27,10 @@ class SharePopup extends React.Component {
     this.onCloseHandler = this.onCloseHandler.bind(this);
   }
 
+  componentDidMount() {
+    document.body.style.overflow = 'hidden';
+  }
+
   onCloseHandler() {
     this.props.backToGalleryDetail();
   }

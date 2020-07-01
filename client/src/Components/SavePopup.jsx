@@ -23,6 +23,10 @@ class SavePopup extends React.Component {
     this.createListHandler = this.createListHandler.bind(this);
   }
 
+  componentDidMount() {
+    document.body.style.overflow = 'hidden';
+  }
+
   onCloseHandler() {
     const { closePopup } = this.props;
     closePopup();

@@ -44,6 +44,7 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.changeViewOnWindowSize);
     window.addEventListener('resize', this.changeMainViewOnWindowSize);
+
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3004/api/51/photogallery',
@@ -63,6 +64,7 @@ class App extends React.Component {
   onExitDetail() {
     this.setState({
       view: 'main',
+      detailView: 'non-grid',
       clickedPhotoIdx: -1,
     });
   }
@@ -74,26 +76,32 @@ class App extends React.Component {
   }
 
   getClickedPhotoIdx(index) {
-    this.setState({ clickedPhotoIdx: index });
+    this.setState({ clickedPhotoIdx: index, view: 'showAll' });
   }
 
   getClickedPhotoIdxfromGrid(index) {
-    this.setState({ clickedPhotoIdx: index });
+    this.setState({ clickedPhotoIdx: index, view: 'showAll' });
   }
 
   changeViewOnWindowSize() {
-    if (window.innerWidth > 1000) {
-      this.setState({ detailView: 'non-grid' });
-    } else {
-      this.setState({ detailView: 'grid' });
+    const { view } = this.state;
+    if (view === 'showAll') {
+      if (window.innerWidth > 900) {
+        this.setState({ detailView: 'non-grid', clickedPhotoIdx: -1 });
+      } else {
+        this.setState({ detailView: 'grid', showSharePopup: false, clickedPhotoIdx: -1 });
+      }
     }
   }
 
   changeMainViewOnWindowSize() {
-    if (window.innerWidth > 750) {
-      this.setState({ mainView: 'main' });
-    } else {
-      this.setState({ mainView: 'main-grid' });
+    const { view } = this.state;
+    if (view === 'main') {
+      if (window.innerWidth > 750) {
+        this.setState({ mainView: 'main', clickedPhotoIdx: -1 });
+      } else {
+        this.setState({ mainView: 'main-grid', clickedPhotoIdx: -1 });
+      }
     }
   }
 
@@ -194,18 +202,26 @@ class App extends React.Component {
       } if (view === 'showAll') {
         if (detailView === 'grid') {
           return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
+        } else if (detailView === 'non-grid') {
+          return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
         }
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
       }
     }
     return null;
   }
 
   render() {
-    const { showSharePopup } = this.state;
+    const { showSharePopup, detailView, view } = this.state;
     const sharePopupBackground = showSharePopup ? styles.showShareBackground : styles.noShareBackground;
+    let appContainer = null;
+    if (detailView === 'grid') {
+      appContainer = `${styles.appContainer} ${styles.expandContainerBody}`;
+    } else if (view === 'main') {
+      appContainer = `${styles.appContainer}`;
+    }
+
     return (
-      <div>
+      <div className={appContainer}>
         {this.renderView()}
         <div className={sharePopupBackground} onClick={this.onClickDetailHandler}></div>
         {showSharePopup ? <SharePopupInner backToGalleryDetail={this.backToGalleryDetail} /> : null}

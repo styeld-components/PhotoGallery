@@ -26,7 +26,7 @@ class GalleryDetailGrid extends React.Component {
   render() {
     const { photos, getClickedPhotoIdxfromGrid } = this.props;
     return (
-      <div>
+      <div className={styles.galleryDetailGridOutterContainer}>
         <div>
           <button className={styles.gallerydetailgridBackBtn} type="submit" onClick={this.onPrevClick}><SVG src={Prev} /></button>
         </div>

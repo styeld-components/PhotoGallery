@@ -10,9 +10,11 @@
   opacity: 1;
   z-index: 4;
   border-bottom: 50px solid rgba(0,0,0,0.75);
+  overflow-y: scroll;
 }
 
 .shareContentContainer {
+  background: white;
   display: block;
   font-family: 'Montserrat', sans-serif;
 }

@@ -4,6 +4,26 @@
   margin: 0;
 } */
 
+.appContainer {
+  background: white;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: scroll;
+}
+
+.expandContainerBody {
+  position: absolute;
+  z-index: 2;
+}
+
+.fixedContainerBody {
+  background: white;
+  height: 800px;
+  overflow: hidden;
+}
+
 .showShareBackground {
   position: fixed;
   width: 100%;
