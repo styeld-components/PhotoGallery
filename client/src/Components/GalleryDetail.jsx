@@ -32,6 +32,14 @@ class GalleryDetail extends React.Component {
     this.backToGalleryDetail = this.backToGalleryDetail.bind(this);
   }
 
+  componentDidMount() {
+    document.body.style.overflow = 'hidden';
+  }
+
+  componentWillUnmount() {
+    document.body.style.overflow = 'unset';
+  }
+
   shareClickHandler() {
     const { sharePopupHandler } = this.props;
     sharePopupHandler();

@@ -1,7 +1,11 @@
 .galleryDetailContainer {
+  position: fixed;
+  background: white;
+  left: 0;
+  top: 0px;
   width: 100%;
   height: 100%;
-  position: fixed;
+  z-index: 3;
 }
 
 .detailTopRow {
