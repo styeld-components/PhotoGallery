@@ -1,4 +1,5 @@
 const db = require('./index.js');
+
 const Gallery = require('./Gallery.js');
 
 const sampleGallery = [{
