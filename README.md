@@ -1,16 +1,38 @@
 # PhotoGallery
 
-# sidebar-components overview
-This component renders a sidebar module for a music player app page.
+> System Design Project on PhotoGallery module
 
-# setup
+## Related Projects
+
+  - https://github.com/styeld-components/PhotoGallery
+  - https://github.com/styeld-components/Calendar
+  - https://github.com/styeld-components/reviews
+  - https://github.com/styeld-components/Carousel
+
+## Table of Contents
+
+1. [Usage](#Usage)
+2. [Development](#development)
+
+## Usage
+
+> Some usage instructions
+
+## Development
+
+### setup
+
+From within the root directory:
+
+```sh
 - run npm install in root directory
 - run below scripts in package.json:
   - npm run seed
   - npm run build
   - npm start
+```
 
-# API Routes
+## Server Endpoints and API routes
 
 **Create - Add a related song**
 ----
@@ -65,6 +87,7 @@ This component renders a sidebar module for a music player app page.
     **content:** `Successfully fetched!` and JSON Object of related photos
 
       **Related photos**
+      ```sh
       user_id: Number,
       room_id: Number,
       room_photos: [{
@@ -75,6 +98,7 @@ This component renders a sidebar module for a music player app page.
         name: String,
         saved: Boolean,
       }],
+      ```
 
 
 * **Error Response:**
@@ -93,7 +117,9 @@ This component renders a sidebar module for a music player app page.
 
    **Required:** `roomId=[integer]`
 
-* **Data Params** JSON Object `{
+* **Data Params** JSON Object
+```sh
+{
   user_id: Number,
   room_id: Number,
   room_photos: [{
@@ -104,7 +130,8 @@ This component renders a sidebar module for a music player app page.
     name: String,
     saved: Boolean,
   }],
-}`
+}
+```
 
 * **Success Response:**
 
@@ -127,7 +154,9 @@ This component renders a sidebar module for a music player app page.
 
    **Required:** `roomId=[integer]`
 
-* **Data Params** JSON Object `{
+* **Data Params** JSON Object
+```sh
+{
   user_id: Number,
   room_id: Number,
   room_photos: [{
@@ -138,12 +167,13 @@ This component renders a sidebar module for a music player app page.
     name: String,
     saved: Boolean,
   }],
-}`
+}
+```
 
 * **Success Response:**
 
   * **Code:** 200 OK <br />
-    **Response Content:** `Successfully updated!`
+    **Response Content:** `Successfully removed!`
 
 * **Error Response:**
 
