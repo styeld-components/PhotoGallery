@@ -45,7 +45,9 @@ From within the root directory:
 
    **Required:** `roomId=[integer]`
 
-* **Data Params** JSON Object `{
+* **Data Params** JSON Object
+```sh
+{
   user_id: Number,
   room_id: Number,
   room_photos: [{
@@ -56,7 +58,8 @@ From within the root directory:
     name: String,
     saved: Boolean,
   }],
-}`
+}
+```
 
 * **Success Response:**
 
