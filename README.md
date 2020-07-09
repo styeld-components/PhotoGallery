@@ -34,7 +34,7 @@ From within the root directory:
 
 ## Server Endpoints and API routes
 
-**Create - Add a related song**
+**Create - Add a related Photo**
 ----
 
 * **URL** /api/:roomId/photogallery
