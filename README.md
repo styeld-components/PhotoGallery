@@ -34,43 +34,6 @@ From within the root directory:
 
 ## Server Endpoints and API routes
 
-**Create - Add a related Photo**
-----
-
-* **URL** /api/:roomId/photogallery
-
-* **Method:** `POST`
-
-*  **URL Params**
-
-   **Required:** `roomId=[integer]`
-
-* **Data Params** JSON Object
-```sh
-{
-  user_id: Number,
-  room_id: Number,
-  room_photos: [{
-    imageUrl: String,
-    description: String
-  }],
-  save_status: [{
-    name: String,
-    saved: Boolean,
-  }],
-}
-```
-
-* **Success Response:**
-
-  * **Code:** 201 Created <br />
-    **Content:** `Successfully posted!`
-
-* **Error Response:**
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `Unathrorized user, unable to post`
-
 **READ - Render related photos and descriptions**
 ----
 
@@ -103,13 +66,79 @@ From within the root directory:
       }],
       ```
 
-
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
     **Response:** `Related photos doesnt exit`
 
-**Update - Update/add a favorite-list item on favorite list**
+
+
+
+**Create - Add a related photo**
+----
+
+* **URL** /api/:roomId/photogallery
+
+* **Method:** `POST`
+
+*  **URL Params**
+
+   **Required:** `roomId=[integer]`
+
+* **Data Params** JSON Object
+```sh
+{
+  imageUrl: String,
+  description: String
+}
+```
+
+* **Success Response:**
+
+  * **Code:** 201 Created <br />
+    **Content:** `Successfully posted!`
+
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Unathrorized user, unable to post`
+
+
+
+
+**Create - Add a favorite**
+----
+
+* **URL** /api/:roomId/photogallery
+
+* **Method:** `POST`
+
+*  **URL Params**
+
+   **Required:** `roomId=[integer]`
+
+* **Data Params** JSON Object
+```sh
+}
+  name: String,
+  saved: Boolean,
+}
+```
+
+* **Success Response:**
+
+  * **Code:** 201 Created <br />
+    **Content:** `Successfully posted!`
+
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Unathrorized user, unable to post`
+
+
+
+
+**Update - Update photo information**
 ----
 
 * **URL** /api/:roomId/photogallery
@@ -123,16 +152,8 @@ From within the root directory:
 * **Data Params** JSON Object
 ```sh
 {
-  user_id: Number,
-  room_id: Number,
-  room_photos: [{
-    imageUrl: String,
-    description: String
-  }],
-  save_status: [{
-    name: String,
-    saved: Boolean,
-  }],
+  imageUrl: String,
+  description: String
 }
 ```
 
@@ -146,7 +167,41 @@ From within the root directory:
   * **Code:** 401 UNAUTHORIZED <br />
     **Response:** `Unathrorized user, unable to update`
 
-**Delete - Delete favorite-list item from the faovrite list**
+
+
+
+**Update - Update the status on favorite**
+----
+
+* **URL** /api/:roomId/photogallery
+
+* **Method:** `PUT`
+
+*  **URL Params**
+
+   **Required:** `roomId=[integer]`
+
+* **Data Params** JSON Object
+```sh
+{
+  saved: Boolean,
+}
+```
+
+* **Success Response:**
+
+  * **Code:** 201 Created <br />
+    **Response:** `Successfully updated!`
+
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Response:** `Unathrorized user, unable to update`
+
+
+
+
+**Delete - Delete photo from the faovrite list**
 ----
 
 * **URL** /api/:roomId/photogallery
@@ -157,25 +212,9 @@ From within the root directory:
 
    **Required:** `roomId=[integer]`
 
-* **Data Params** JSON Object
-```sh
-{
-  user_id: Number,
-  room_id: Number,
-  room_photos: [{
-    imageUrl: String,
-    description: String
-  }],
-  save_status: [{
-    name: String,
-    saved: Boolean,
-  }],
-}
-```
-
 * **Success Response:**
 
-  * **Code:** 200 OK <br />
+  * **Code:** 204 OK <br />
     **Response Content:** `Successfully removed!`
 
 * **Error Response:**
