@@ -154,8 +154,8 @@ From within the root directory:
 *  **URL Params**
 
    **Required:**
-   *** `room_id`
-   *** `image_id`
+   ***`room_id`***
+   ***`image_id`***
 
 * **Data Params** JSON Object
 ```sh
