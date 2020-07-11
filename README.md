@@ -34,16 +34,16 @@ From within the root directory:
 
 ## Server Endpoints and API routes
 
-**READ - Render related photos and descriptions**
+**READ - Render Room's Photo Gallery**
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos
 
 * **Method:** `GET`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:** `room_id`
 
 * **Data Params** NA
 
@@ -54,16 +54,20 @@ From within the root directory:
 
       **Related photos**
       ```sh
-      user_id: Number,
-      room_id: Number,
-      room_photos: [{
-        imageUrl: String,
-        description: String
-      }],
-      save_status: [{
-        name: String,
-        saved: Boolean,
-      }],
+      {
+        user_id: Number,
+        room_id: Number,
+        room_photos: [{
+          image_id: Number,
+          image_url: String,
+          image_name: String,
+          description: String
+        }],
+        favorites: [{
+          favorite_name: String,
+          isFaved: Boolean,
+        }],
+      }
       ```
 
 * **Error Response:**
@@ -74,21 +78,23 @@ From within the root directory:
 
 
 
-**Create - Add a related photo**
+**Create - Add photos to The Room's Photo Gallery**
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos
 
 * **Method:** `POST`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:** `room_id`
 
 * **Data Params** JSON Object
 ```sh
 {
-  imageUrl: String,
+  image_id: Number,
+  image_url: String,
+  image_name: String,
   description: String
 }
 ```
@@ -106,22 +112,22 @@ From within the root directory:
 
 
 
-**Create - Add a favorite**
+**Create - Add a favorite **
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos
 
 * **Method:** `POST`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:** `room_id`
 
 * **Data Params** JSON Object
 ```sh
-}
-  name: String,
-  saved: Boolean,
+{
+  favorite_name: String,
+  isFaved: Boolean,
 }
 ```
 
@@ -141,18 +147,21 @@ From within the root directory:
 **Update - Update photo information**
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos/:image_id
 
 * **Method:** `PUT`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:**
+   * `room_id`
+   * `image_id`
 
 * **Data Params** JSON Object
 ```sh
 {
-  imageUrl: String,
+  image_url: String,
+  image_name: String,
   description: String
 }
 ```
@@ -173,18 +182,18 @@ From within the root directory:
 **Update - Update the status on favorite**
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos
 
 * **Method:** `PUT`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:** `room_id`
 
 * **Data Params** JSON Object
 ```sh
 {
-  saved: Boolean,
+  isFaved: Boolean,
 }
 ```
 
@@ -204,13 +213,13 @@ From within the root directory:
 **Delete - Delete photo from the faovrite list**
 ----
 
-* **URL** /api/:roomId/photogallery
+* **URL** /api/:room_id/photos
 
 * **Method:** `DELETE`
 
 *  **URL Params**
 
-   **Required:** `roomId=[integer]`
+   **Required:** `room_id`
 
 * **Success Response:**
 
