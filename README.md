@@ -115,13 +115,13 @@ From within the root directory:
 **Create - Add a favorite **
 ----
 
-* **URL** /api/:room_id/photos
+* **URL** /api/:user_id/favorites
 
 * **Method:** `POST`
 
 *  **URL Params**
 
-   **Required:** `room_id`
+   **Required:** `user_id`
 
 * **Data Params** JSON Object
 ```sh
