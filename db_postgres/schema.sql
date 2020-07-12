@@ -18,8 +18,8 @@ CREATE TABLE users(
 CREATE TABLE rooms(
   id INTEGER PRIMARY KEY,
   title VARCHAR(100),
-  description TEXT
-  isSuperhost BOOLEAN,
+  description TEXT,
+  isSuperhost BOOLEAN
 );
 
 CREATE TABLE favorites(
