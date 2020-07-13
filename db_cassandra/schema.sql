@@ -1,5 +1,5 @@
 /*  Execute this file from the command line by typing:
- *
+ *  source '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_cassandra/schema.sql';
  *  to create the database and the tables.*/
 
 DROP KEYSPACE IF EXISTS sdc_photogallery;
