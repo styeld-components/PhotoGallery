@@ -1,4 +1,5 @@
 /*  Execute this file from the command line by typing:
+ *    psql postrgres
  *    \i schema.sql
  *  to create the database and the tables.*/
 \c postgres;
