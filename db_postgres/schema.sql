@@ -77,8 +77,7 @@ COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/g
 COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genFavorites6.csv' DELIMITER ',' CSV HEADER;
 COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genFavorites7.csv' DELIMITER ',' CSV HEADER;
 COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genFavorites8.csv' DELIMITER ',' CSV HEADER;
-COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genFavorites9.csv' DELIMITER ',' CSV HEADER;
-COPY favorites FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genFavorites10.csv' DELIMITER ',' CSV HEADER;
+
 
 -- photos cvs files
 COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos1.csv' DELIMITER ',' CSV HEADER;
@@ -93,16 +92,4 @@ COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genP
 COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos10.csv' DELIMITER ',' CSV HEADER;
 COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos11.csv' DELIMITER ',' CSV HEADER;
 COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos12.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos13.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos14.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos15.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos16.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos17.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos18.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos19.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos20.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos21.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos22.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos23.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos24.csv' DELIMITER ',' CSV HEADER;
-COPY photos FROM '/Users/johannlee/hrsf128/SDC/PhotoGallery/db_postgres/csv/genPhotos25.csv' DELIMITER ',' CSV HEADER;
+

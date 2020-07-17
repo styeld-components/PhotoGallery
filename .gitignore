@@ -1,4 +1,4 @@
 node_modules
 client/dist/bundle.js
-db_postgres/cvs
-db_cassandra/cvs
+db_postgres/csv/*.csv
+db_cassandra/csv/*.csv
