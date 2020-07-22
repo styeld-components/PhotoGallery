@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable no-console */
-const nr = require('newrelic');
+require('newrelic');
 const express = require('express');
 const app = express();
 const port = 3004;

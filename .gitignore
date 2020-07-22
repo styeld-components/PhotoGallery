@@ -3,3 +3,4 @@ client/dist/bundle.js
 db_postgres/csv/*.csv
 db_cassandra/csv/*.csv
 newrelic.js
+newrelic_agent.log
