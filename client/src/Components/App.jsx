@@ -26,6 +26,7 @@ class App extends React.Component {
       detailView: 'non-grid',
       mainView: 'main',
     };
+    this.getPhotos = this.getPhotos.bind(this);
     this.renderView = this.renderView.bind(this);
     this.onShowAll = this.onShowAll.bind(this);
     this.onExitDetail = this.onExitDetail.bind(this);
@@ -44,17 +45,7 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.changeViewOnWindowSize);
     window.addEventListener('resize', this.changeMainViewOnWindowSize);
-
-    $.ajax({
-      method: 'GET',
-      url: 'http://localhost:3004/api/51/photogallery',
-      success: (data) => {
-        this.setState({ photos: data });
-      },
-      error: (err) => {
-        console.log('err on ajax get: ', err);
-      },
-    });
+    this.getPhotos();
   }
 
   onShowAll() {
@@ -72,6 +63,23 @@ class App extends React.Component {
   onClickDetailHandler() {
     this.setState({
       showSharePopup: false,
+    });
+  }
+
+  getPhotos() {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:3004/api/511/photogallery',
+      success: (data) => {
+        console.log('data rows:', data.rows);
+        const photos = data.rows;
+        this.setState({
+          photos,
+        });
+      },
+      error: (err) => {
+        console.log('err on ajax get: ', err);
+      },
     });
   }
 
@@ -134,16 +142,7 @@ class App extends React.Component {
       }),
       success: () => {
         console.log('successfully save to a list ajax');
-        $.ajax({
-          method: 'GET',
-          url: 'http://localhost:3004/api/51/photogallery',
-          success: (data) => {
-            this.setState({ photos: data });
-          },
-          error: (err) => {
-            console.log('err on ajax get: ', err);
-          },
-        });
+        this.getPhotos();
       },
       error: (err) => {
         console.log('err on ajax save to list post: ', err);
@@ -163,16 +162,7 @@ class App extends React.Component {
       }),
       success: () => {
         console.log('successfully updated save list ajax');
-        $.ajax({
-          method: 'GET',
-          url: 'http://localhost:3004/api/51/photogallery',
-          success: (data) => {
-            this.setState({ photos: data });
-          },
-          error: (err) => {
-            console.log('err on ajax get: ', err);
-          },
-        });
+        this.getPhotos();
       },
       error: (err) => {
         console.log('err on ajax update save list: ', err);
@@ -189,21 +179,22 @@ class App extends React.Component {
 
     if (list.length !== 0) {
       for (let i = 0; i < 5; i += 1) {
-        mainPhoto.push(list[0].room_photos[i]);
+        mainPhoto.push(list[0].image_src);
+        console.log('mainPhoto: ', mainPhoto);
       }
       if (clickedPhotoIdx >= 0) {
-        return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
+        return <GalleryDetail photos={photos} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} clickedPhotoIdx={clickedPhotoIdx} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
       } if (view === 'main') {
         if (mainView === 'main') {
-          return <GalleryMain photos={photos[0]} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
+          return <GalleryMain photos={photos} onShowAll={this.onShowAll} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} getClickedPhotoIdx={this.getClickedPhotoIdx} />;
         } else {
-          return <GalleryMainGrid photos={photos[0]} showDetailGrid={this.showDetailGrid} numPhotos={photos[0].room_photos.length} />;
+          return <GalleryMainGrid photos={photos} showDetailGrid={this.showDetailGrid} numPhotos={photos.length} />;
         }
       } if (view === 'showAll') {
         if (detailView === 'grid') {
-          return <GalleryDetailGrid photos={photos[0]} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
+          return <GalleryDetailGrid photos={photos} onExitDetail={this.onExitDetail} getClickedPhotoIdxfromGrid={this.getClickedPhotoIdxfromGrid} />;
         } else if (detailView === 'non-grid') {
-          return <GalleryDetail photos={photos[0]} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
+          return <GalleryDetail photos={photos} onExitDetail={this.onExitDetail} sharePopupHandler={this.sharePopupHandler} saveToList={this.saveToList} likeStatusUpdate={this.likeStatusUpdate} />;
         }
       }
     }
