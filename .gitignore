@@ -5,3 +5,4 @@ db_postgres/csv/*.csv
 db_cassandra/csv/*.csv
 newrelic.js
 newrelic_agent.log
+loaderio-b062d0349955cb9d7893a77504ef7169.txt

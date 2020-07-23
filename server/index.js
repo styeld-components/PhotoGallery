@@ -12,7 +12,8 @@ const Controllers = require('./Controllers.js');
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/photogallery', express.static(path.join(__dirname, '../client/dist')));
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
+// app.use('/photogallery', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/:roomId/photogallery', (req, res) => {
   Controllers.getPhotos(req, res);
