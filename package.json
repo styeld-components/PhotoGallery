@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack -d --watch",
+    "build": "webpack -p",
     "seed": "node database/seed.js",
     "test": "jest"
   },
@@ -31,7 +31,8 @@
     "react-svg-loader": "^3.0.3",
     "style-loader": "^1.2.1",
     "svg-inline-loader": "^0.8.2",
-    "webpack": "^2.2.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "@babel/preset-env": "^7.10.3",
