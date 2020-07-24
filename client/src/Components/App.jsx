@@ -69,7 +69,7 @@ class App extends React.Component {
   getPhotos() {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3004/api/511/photogallery',
+      url: './api/511/photogallery',
       success: (data) => {
         console.log('data rows:', data.rows);
         const photos = data.rows;
@@ -134,7 +134,7 @@ class App extends React.Component {
   saveToList(listname, save) {
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3004/api/51/photogallery',
+      url: './api/51/photogallery',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name: listname,
@@ -153,7 +153,7 @@ class App extends React.Component {
   likeStatusUpdate(listId, listname, likedStatus) {
     $.ajax({
       method: 'PUT',
-      url: 'http://localhost:3004/api/51/photogallery',
+      url: './api/51/photogallery',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         id: listId,
